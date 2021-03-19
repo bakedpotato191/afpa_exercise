@@ -1,25 +1,55 @@
 package exo2;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map.Entry;
+
+
 public class Main {
 
 	public static void main(String[] args) {
 		
-		new Specialite("JAVA/JEE");
-		new Specialite("HTML/CSS");
-		new Specialite("Gestion de projet");
-		new Specialite("JS");
-		new Specialite("PHP");
+		ArrayList<Specialite> specialite = new ArrayList<Specialite>();
+		ArrayList<Enseignant> enseignants = new ArrayList<Enseignant>();
 		
-		Enseignant e1 = new Enseignant("Toutain", "Damien", "JAVA/JEE");
-		Enseignant e2 = new Enseignant("Micheaux", "Francis", "JAVA/JEE");
-		Enseignant e3 = new Enseignant("Souchon", "Bernard", "PHP");
-		Enseignant e4 = new Enseignant("Astier", "Carla", "JS");
+		specialite.add(new Specialite ("JAVA/JEE"));
+		specialite.add(new Specialite ("HTML/CSS"));
+		specialite.add(new Specialite ("Gestion de projet"));
+		specialite.add(new Specialite ("JS"));
+		specialite.add(new Specialite ("PHP"));
 		
-		System.out.println(e2);
-		System.out.println(e3);
-		System.out.println(e4);
-		System.out.println(e1);
+		enseignants.add(new Enseignant ("Toutain", "Damien", specialite.get(0)));
+		enseignants.add(new Enseignant ("Micheaux", "Francis", specialite.get(0)));
+		enseignants.add(new Enseignant ("Souchon", "Bernard", specialite.get(4)));
+		enseignants.add(new Enseignant ("Astier", "Carla", specialite.get(3)));
+		
 
+		HashMap<String, String> map = new HashMap<>(); 
+
+		boolean exists;
+		for (Specialite i : specialite) {
+			exists = false;
+			map.put(i.getNom(), "");
+			for (Enseignant j : enseignants) {
+				if (i.getNom().equals(j.getSpecialite().getNom())) {
+
+					String existing = map.get(i.getNom()) + " ";
+					String extraContent = "| " + j.getNom() + " " + j.getPrenom();
+					map.put(i.getNom(), existing == null ? extraContent : existing + extraContent);
+					exists = true;
+					
+				}
+			}
+			if (!(exists)) {
+				String existing = map.get(i.getNom()) + " ";
+				String extraContent = "| No teachers assigned";
+				map.put(i.getNom(), existing == null ? extraContent : existing + extraContent);
+			}
+		}	
+		
+		for (Entry<String, String> entry : map.entrySet()) {
+		    System.out.println(entry.getKey() + "/" + entry.getValue());
+		}
+	
 	}
-
 }

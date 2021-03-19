@@ -6,20 +6,20 @@ public class Specialite {
 	private static final AtomicInteger count = new AtomicInteger();
 	private final int id;
 	
-	private String specialite;
+	private String nom;
 
-	public Specialite(String specialite) {
+	public Specialite(String nom) {
 		super();
 		this.id = count.getAndIncrement();
-		this.specialite = specialite;
+		this.nom = nom;
 	}
 
-	public String getSpecialite() {
-		return specialite;
+	public String getNom() {
+		return nom;
 	}
-
-	public void setSpecialite(String specialite) {
-		this.specialite = specialite;
+	
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 
 	public int getId() {
@@ -28,7 +28,7 @@ public class Specialite {
 
 	@Override
 	public String toString() {
-		return "Specialite [id=" + id + ", specialite=" + specialite + "]";
+		return "Specialite [id=" + id + ", specialite=" + nom + "]";
 	}
 
 }
