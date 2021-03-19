@@ -1,7 +1,8 @@
-package exo2;
+package exercice2;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Map.Entry;
 
 public class Main {
@@ -23,49 +24,54 @@ public class Main {
 		enseignant.add(new Enseignant("Astier", "Carla", "carla@gmail.com", specialite.get(3)));
 
 		/* Simple output */
-		boolean exists;
+
+		boolean exist;
+
 		for (Specialite i : specialite) {
 			System.out.print(i.getNom() + ": ");
-			exists = false;
+			exist = false;
 			for (Enseignant j : enseignant) {
 				if (i.getId() == (j.getSpecialite().getId())) {
 					System.out.print(" " + j);
-					exists = true;
+					exist = true;
 				}
 			}
-			if (!(exists)) {
+			if (!(exist)) {
 				System.out.print(" Aucun enseignant pour la spécialité ");
 			}
 			System.out.println();
 		}
 
+		/*
+		 * 
+		 */
+
 		System.out.println();
 
-		/* Map teachers to specialities */
-		HashMap<String, String> map = new HashMap<>();
+		/* Map teachers by speciality */
 
-		boolean exist;
+		ArrayList<String> names = new ArrayList<String>();
+		Map<String, String> map = new HashMap<>();
+
 		for (Specialite i : specialite) {
 			exist = false;
-			map.put(i.getNom(), "");
 			for (Enseignant j : enseignant) {
-				if (i.getNom().equals(j.getSpecialite().getNom())) {
-					String existing = map.get(i.getNom()) + " ";
-					String extraContent = j.toString();
-					map.put(i.getNom(), existing == null ? extraContent : existing + extraContent);
+				if (i.getId() == (j.getSpecialite().getId())) {
+					names.add(j.toString());
+					String a = String.join(",", names);
+					map.put(i.getNom(), a);
 					exist = true;
 				}
+
 			}
+			names.clear();
 			if (!(exist)) {
-				String existing = map.get(i.getNom()) + " ";
-				String extraContent = " Aucun enseignant pour la spécialité";
-				map.put(i.getNom(), existing == null ? extraContent : existing + extraContent);
+				map.put(i.getNom(), " Aucun enseignant pour la spécialité");
 			}
 		}
 
-		for (Entry<String, String> entry : map.entrySet()) {
-			System.out.println(entry.getKey() + ":" + entry.getValue());
-		}
+		for (Entry<String, String> entry : map.entrySet())
+			System.out.println(entry.getKey() + " - " + entry.getValue());
 
 	}
 }

@@ -1,1 +1,1 @@
-package exo2;
+package exercice2;

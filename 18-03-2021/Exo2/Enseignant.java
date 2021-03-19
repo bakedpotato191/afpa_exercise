@@ -1,4 +1,4 @@
-package exo2;
+package exercice2;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
