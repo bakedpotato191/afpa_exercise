@@ -33,7 +33,7 @@ public class Vehicule {
 				affiche_info_avant_remplissage(toFill, pContenu, vContenance, vContenu);
 
 				v1.setContenuReservoir(vContenu + toFill);
-				p1.setContenu((byte) 0);
+				p1.setContenu((short) 0);
 				pContenu = p1.getContenu();
 				vContenu = v1.getContenuReservoir();
 
