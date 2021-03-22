@@ -2,32 +2,40 @@ package exo;
 
 public class Vehicule {
 	private static int toFill;
+	private static int pContenu;
+	private static int vContenance;
+	private static int vContenu;
 
-	public static void fairePlein(Pompe obj1, Voiture obj2) {
-		if (obj1.getTypeCarburant1().equals(obj2.getTypeCarburant())) {
-			if (obj1.getContenu() > (obj2.getContenanceReservoir() - obj2.getContenuReservoir())) {
-				toFill = obj2.getContenanceReservoir() - obj2.getContenuReservoir();
+	public static void fairePlein(Pompe p1, Voiture v1) {
+		if (p1.getTypeCarburant1().equals(v1.getTypeCarburant())) {
 
-				affiche_info_avant_remplissage(toFill, obj1.getContenu(), obj2.getContenanceReservoir(),
-						obj2.getContenuReservoir());
+			pContenu = p1.getContenu();
+			vContenance = v1.getContenanceReservoir();
+			vContenu = v1.getContenuReservoir();
 
-				obj2.setContenuReservoir(obj2.getContenanceReservoir());
-				obj1.setContenu(obj1.getContenu() - toFill);
+			if (p1.getContenu() > (v1.getContenanceReservoir() - v1.getContenuReservoir())) {
+				toFill = vContenance - vContenu;
+				affiche_info_avant_remplissage(toFill, pContenu, vContenance, vContenu);
 
-				affiche_info_apres_replissage(toFill, obj1.getContenu(), obj2.getContenuReservoir());
+				v1.setContenuReservoir(vContenance);
+				p1.setContenu(pContenu - toFill);
+				pContenu = p1.getContenu();
+
+				affiche_info_apres_replissage(pContenu, vContenance);
 			} else {
-				toFill = obj1.getContenu();
+				toFill = pContenu;
 
-				affiche_info_avant_remplissage(toFill, obj1.getContenu(), obj2.getContenanceReservoir(),
-						obj2.getContenuReservoir());
+				affiche_info_avant_remplissage(toFill, pContenu, vContenance, vContenu);
 
-				obj2.setContenuReservoir(obj2.getContenuReservoir() + toFill);
-				obj1.setContenu(0);
+				v1.setContenuReservoir(vContenu + toFill);
+				p1.setContenu(0);
+				pContenu = p1.getContenu();
+				vContenu = v1.getContenuReservoir();
 
-				affiche_info_apres_replissage(toFill, obj1.getContenu(), obj2.getContenuReservoir());
+				affiche_info_apres_replissage(pContenu, vContenu);
 			}
 		} else {
-			System.out.println("C'est une pompe à essence");
+			System.out.println("Utiliser une autre pompe");
 		}
 	}
 
@@ -39,7 +47,7 @@ public class Vehicule {
 		System.out.println("<---Remplissage du Réservoir ---->");
 	}
 
-	public static void affiche_info_apres_replissage(int tf, int c1, int c2) {
+	public static void affiche_info_apres_replissage(int c1, int c2) {
 		System.out.println("Niveau d'essence dans la pompe après le remplissage: " + c1);
 		System.out.println("Niveau d'essence dans la voiture après le remplissage: " + c2);
 	}
