@@ -1,4 +1,4 @@
-package exo;
+package matin;
 
 public class Voiture extends Vehicule {
 

@@ -1,4 +1,4 @@
-package exo;
+package matin;
 
 public class Vehicule {
 	private static int toFill;
@@ -23,7 +23,7 @@ public class Vehicule {
 				affiche_info_avant_remplissage(toFill, pContenu, vContenance, vContenu);
 
 				v1.setContenuReservoir(vContenance);
-				p1.setContenu((byte) (pContenu - toFill));
+				p1.setContenu((short) (pContenu - toFill));
 				pContenu = p1.getContenu();
 
 				affiche_info_apres_replissage(pContenu, vContenance);

@@ -1,4 +1,4 @@
-package exo;
+package matin;
 
 public class Pompe {
 	private final String typeCarburant1 = "essence";
@@ -29,8 +29,8 @@ public class Pompe {
 		return contenu;
 	}
 
-	public void setContenu(byte contenu) {
-		this.contenu = contenu;
+	public void setContenu(short s) {
+		this.contenu = s;
 	}
 
 	public String getTypeCarburant1() {
