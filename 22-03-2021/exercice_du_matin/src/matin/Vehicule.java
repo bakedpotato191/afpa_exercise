@@ -15,15 +15,15 @@ public class Vehicule {
 		if (pCarburant.equals(vCarburant)) {
 
 			pContenu = p1.getContenu();
-			vContenance = (byte) v1.getContenanceReservoir();
-			vContenu = (byte) v1.getContenuReservoir();
+			vContenance = v1.getContenanceReservoir();
+			vContenu = v1.getContenuReservoir();
 
 			if (p1.getContenu() > (v1.getContenanceReservoir() - v1.getContenuReservoir())) {
 				toFill = (byte) (vContenance - vContenu);
 
 				affiche_info_avant_remplissage(toFill, pContenu, vContenance, vContenu);
 
-				v1.setContenuReservoir((byte) vContenance);
+				v1.setContenuReservoir(vContenance);
 				p1.setContenu((short) (pContenu - toFill));
 				pContenu = p1.getContenu();
 
@@ -37,7 +37,7 @@ public class Vehicule {
 				p1.setContenu((short) 0);
 
 				pContenu = p1.getContenu();
-				vContenu = (byte) v1.getContenuReservoir();
+				vContenu = v1.getContenuReservoir();
 
 				affiche_info_apres_replissage(pContenu, vContenu);
 			}

@@ -32,7 +32,7 @@ public class Voiture extends Vehicule {
 		this.typeCarburant = typeCarburant;
 	}
 
-	public int getMaxVitesse() {
+	public short getMaxVitesse() {
 		return maxVitesse;
 	}
 
@@ -40,7 +40,7 @@ public class Voiture extends Vehicule {
 		this.maxVitesse = maxVitesse;
 	}
 
-	public int getContenanceReservoir() {
+	public byte getContenanceReservoir() {
 		return contenanceReservoir;
 	}
 
@@ -48,7 +48,7 @@ public class Voiture extends Vehicule {
 		this.contenanceReservoir = contenanceReservoir;
 	}
 
-	public int getContenuReservoir() {
+	public byte getContenuReservoir() {
 		return contenuReservoir;
 	}
 
@@ -56,7 +56,7 @@ public class Voiture extends Vehicule {
 		this.contenuReservoir = contenuReservoir;
 	}
 
-	public int getNombreRoues() {
+	public byte getNombreRoues() {
 		return nombreRoues;
 	}
 
