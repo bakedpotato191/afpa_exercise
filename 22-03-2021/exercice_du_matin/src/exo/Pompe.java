@@ -2,8 +2,8 @@ package exo;
 
 public class Pompe {
 	private final String typeCarburant1 = "essence";
-	private int contenance;
-	private int contenu;
+	private short contenance;
+	private short contenu;
 
 	public Pompe() {
 		super();
@@ -11,7 +11,7 @@ public class Pompe {
 		this.contenu = 235;
 	}
 
-	public Pompe(int contenance, int contenu) {
+	public Pompe(short contenance, short contenu) {
 		super();
 		this.contenance = contenance;
 		this.contenu = contenu;
@@ -21,7 +21,7 @@ public class Pompe {
 		return contenance;
 	}
 
-	public void setContenance(int contenance) {
+	public void setContenance(short contenance) {
 		this.contenance = contenance;
 	}
 
@@ -29,7 +29,7 @@ public class Pompe {
 		return contenu;
 	}
 
-	public void setContenu(int contenu) {
+	public void setContenu(byte contenu) {
 		this.contenu = contenu;
 	}
 

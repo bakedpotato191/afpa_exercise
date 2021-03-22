@@ -23,7 +23,7 @@ public class Vehicule {
 				affiche_info_avant_remplissage(toFill, pContenu, vContenance, vContenu);
 
 				v1.setContenuReservoir(vContenance);
-				p1.setContenu(pContenu - toFill);
+				p1.setContenu((byte) (pContenu - toFill));
 				pContenu = p1.getContenu();
 
 				affiche_info_apres_replissage(pContenu, vContenance);
@@ -33,7 +33,7 @@ public class Vehicule {
 				affiche_info_avant_remplissage(toFill, pContenu, vContenance, vContenu);
 
 				v1.setContenuReservoir(vContenu + toFill);
-				p1.setContenu(0);
+				p1.setContenu((byte) 0);
 				pContenu = p1.getContenu();
 				vContenu = v1.getContenuReservoir();
 
@@ -44,7 +44,7 @@ public class Vehicule {
 		}
 	}
 
-	public static void affiche_info_avant_remplissage(int tf, int c1, int c2, int c3) {
+	private static void affiche_info_avant_remplissage(int tf, int c1, int c2, int c3) {
 		System.out.println("Niveau actuel d'essence dans la pompe: " + c1);
 		System.out.println("Capacité du réservoir d'essence dans la voiture: " + c2);
 		System.out.println("Niveau d'essence actuel dans la voiture: " + c3);
@@ -52,7 +52,7 @@ public class Vehicule {
 		System.out.println("<---Remplissage du Réservoir ---->");
 	}
 
-	public static void affiche_info_apres_replissage(int c1, int c2) {
+	private static void affiche_info_apres_replissage(int c1, int c2) {
 		System.out.println("Niveau d'essence dans la pompe après le remplissage: " + c1);
 		System.out.println("Niveau d'essence dans la voiture après le remplissage: " + c2);
 	}
