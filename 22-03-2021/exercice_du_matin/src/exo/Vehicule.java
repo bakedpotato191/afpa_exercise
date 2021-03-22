@@ -5,9 +5,14 @@ public class Vehicule {
 	private static int pContenu;
 	private static int vContenance;
 	private static int vContenu;
+	private static String pCarburant;
+	private static String vCarburant;
 
 	public static void fairePlein(Pompe p1, Voiture v1) {
-		if (p1.getTypeCarburant1().equals(v1.getTypeCarburant())) {
+		pCarburant = p1.getTypeCarburant1();
+		vCarburant = v1.getTypeCarburant();
+
+		if (pCarburant.equals(vCarburant)) {
 
 			pContenu = p1.getContenu();
 			vContenance = v1.getContenanceReservoir();
