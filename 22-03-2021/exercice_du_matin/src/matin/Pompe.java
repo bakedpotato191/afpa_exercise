@@ -17,7 +17,7 @@ public class Pompe {
 		this.contenu = contenu;
 	}
 
-	public int getContenance() {
+	public short getContenance() {
 		return contenance;
 	}
 
@@ -25,7 +25,7 @@ public class Pompe {
 		this.contenance = contenance;
 	}
 
-	public int getContenu() {
+	public short getContenu() {
 		return contenu;
 	}
 

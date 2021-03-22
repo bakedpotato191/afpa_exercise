@@ -4,9 +4,9 @@ public class Voiture extends Vehicule {
 
 	private final byte nombreRoues = 4;
 	private String typeCarburant;
-	private int maxVitesse;
-	private int contenanceReservoir;
-	private int contenuReservoir;
+	private short maxVitesse;
+	private byte contenanceReservoir;
+	private byte contenuReservoir;
 
 	public Voiture() {
 		super();
@@ -16,7 +16,7 @@ public class Voiture extends Vehicule {
 		this.contenuReservoir = 35;
 	}
 
-	public Voiture(String typeCarburant, int maxVitesse, int contenanceReservoir, int contenuReservoir) {
+	public Voiture(String typeCarburant, short maxVitesse, byte contenanceReservoir, byte contenuReservoir) {
 		super();
 		this.typeCarburant = typeCarburant;
 		this.maxVitesse = maxVitesse;
@@ -36,7 +36,7 @@ public class Voiture extends Vehicule {
 		return maxVitesse;
 	}
 
-	public void setMaxVitesse(int maxVitesse) {
+	public void setMaxVitesse(short maxVitesse) {
 		this.maxVitesse = maxVitesse;
 	}
 
@@ -44,7 +44,7 @@ public class Voiture extends Vehicule {
 		return contenanceReservoir;
 	}
 
-	public void setContenanceReservoir(int contenanceReservoir) {
+	public void setContenanceReservoir(byte contenanceReservoir) {
 		this.contenanceReservoir = contenanceReservoir;
 	}
 
@@ -52,7 +52,7 @@ public class Voiture extends Vehicule {
 		return contenuReservoir;
 	}
 
-	public void setContenuReservoir(int contenuReservoir) {
+	public void setContenuReservoir(byte contenuReservoir) {
 		this.contenuReservoir = contenuReservoir;
 	}
 

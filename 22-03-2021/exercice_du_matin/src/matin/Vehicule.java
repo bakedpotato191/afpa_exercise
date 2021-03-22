@@ -1,10 +1,10 @@
 package matin;
 
 public class Vehicule {
-	private static int toFill;
-	private static int pContenu;
-	private static int vContenance;
-	private static int vContenu;
+	private static byte toFill;
+	private static short pContenu;
+	private static byte vContenance;
+	private static byte vContenu;
 	private static String pCarburant;
 	private static String vCarburant;
 
@@ -15,27 +15,29 @@ public class Vehicule {
 		if (pCarburant.equals(vCarburant)) {
 
 			pContenu = p1.getContenu();
-			vContenance = v1.getContenanceReservoir();
-			vContenu = v1.getContenuReservoir();
+			vContenance = (byte) v1.getContenanceReservoir();
+			vContenu = (byte) v1.getContenuReservoir();
 
 			if (p1.getContenu() > (v1.getContenanceReservoir() - v1.getContenuReservoir())) {
-				toFill = vContenance - vContenu;
+				toFill = (byte) (vContenance - vContenu);
+
 				affiche_info_avant_remplissage(toFill, pContenu, vContenance, vContenu);
 
-				v1.setContenuReservoir(vContenance);
+				v1.setContenuReservoir((byte) vContenance);
 				p1.setContenu((short) (pContenu - toFill));
 				pContenu = p1.getContenu();
 
 				affiche_info_apres_replissage(pContenu, vContenance);
 			} else {
-				toFill = pContenu;
+				toFill = (byte) pContenu;
 
 				affiche_info_avant_remplissage(toFill, pContenu, vContenance, vContenu);
 
-				v1.setContenuReservoir(vContenu + toFill);
+				v1.setContenuReservoir((byte) (vContenu + toFill));
 				p1.setContenu((short) 0);
+
 				pContenu = p1.getContenu();
-				vContenu = v1.getContenuReservoir();
+				vContenu = (byte) v1.getContenuReservoir();
 
 				affiche_info_apres_replissage(pContenu, vContenu);
 			}
@@ -44,7 +46,7 @@ public class Vehicule {
 		}
 	}
 
-	private static void affiche_info_avant_remplissage(int tf, int c1, int c2, int c3) {
+	private static void affiche_info_avant_remplissage(byte tf, short c1, byte c2, byte c3) {
 		System.out.println("Niveau actuel d'essence dans la pompe: " + c1);
 		System.out.println("Capacité du réservoir d'essence dans la voiture: " + c2);
 		System.out.println("Niveau d'essence actuel dans la voiture: " + c3);
