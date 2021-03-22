@@ -10,9 +10,9 @@ public class Moto extends Vehicule {
 
 	public Moto() {
 		super();
-		nombreRoues = 2;
-		typeCarburant = "essence";
-		maxVitesse = 140;
+		this.nombreRoues = 2;
+		this.typeCarburant = "essence";
+		this.maxVitesse = 140;
 	}
 
 	public Moto(byte nombreRoues, String typeCarburant, short maxVitesse, byte contenanceReservoir,

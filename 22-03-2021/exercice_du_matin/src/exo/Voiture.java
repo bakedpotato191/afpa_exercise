@@ -10,8 +10,10 @@ public class Voiture extends Vehicule {
 
 	public Voiture() {
 		super();
-		typeCarburant = "diesel";
-		maxVitesse = 200;
+		this.typeCarburant = "diesel";
+		this.maxVitesse = 200;
+		this.contenanceReservoir = 60;
+		this.contenuReservoir = 35;
 	}
 
 	public Voiture(String typeCarburant, int maxVitesse, int contenanceReservoir, int contenuReservoir) {
