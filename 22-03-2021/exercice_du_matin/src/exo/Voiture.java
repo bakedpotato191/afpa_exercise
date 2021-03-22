@@ -2,7 +2,7 @@ package exo;
 
 public class Voiture extends Vehicule {
 
-	private int nombreRoues = 4;
+	private final int nombreRoues = 4;
 	private String typeCarburant;
 	private int maxVitesse;
 	private int contenanceReservoir;
@@ -10,27 +10,16 @@ public class Voiture extends Vehicule {
 
 	public Voiture() {
 		super();
-		nombreRoues = 4;
 		typeCarburant = "diesel";
 		maxVitesse = 200;
 	}
 
-	public Voiture(int nombreRoues, String typeCarburant, int maxVitesse, int contenanceReservoir,
-			int contenuReservoir) {
+	public Voiture(String typeCarburant, int maxVitesse, int contenanceReservoir, int contenuReservoir) {
 		super();
-		this.nombreRoues = nombreRoues;
 		this.typeCarburant = typeCarburant;
 		this.maxVitesse = maxVitesse;
 		this.contenanceReservoir = contenanceReservoir;
 		this.contenuReservoir = contenuReservoir;
-	}
-
-	public int getNombreRoues() {
-		return nombreRoues;
-	}
-
-	public void setNombreRoues(int nombreRoues) {
-		this.nombreRoues = nombreRoues;
 	}
 
 	public String getTypeCarburant() {
@@ -63,6 +52,10 @@ public class Voiture extends Vehicule {
 
 	public void setContenuReservoir(int contenuReservoir) {
 		this.contenuReservoir = contenuReservoir;
+	}
+
+	public int getNombreRoues() {
+		return nombreRoues;
 	}
 
 	@Override

@@ -1,20 +1,18 @@
 package exo;
 
 public class Pompe {
-	private String typeCarburant1;
+	private final String typeCarburant1 = "essence";
 	private int contenance;
 	private int contenu;
 
 	public Pompe() {
 		super();
-		this.typeCarburant1 = "essence";
 		this.contenance = 450;
 		this.contenu = 235;
 	}
 
-	public Pompe(String typeCarburant1, int contenance, int contenu) {
+	public Pompe(int contenance, int contenu) {
 		super();
-		this.typeCarburant1 = typeCarburant1;
 		this.contenance = contenance;
 		this.contenu = contenu;
 	}
@@ -39,8 +37,8 @@ public class Pompe {
 		return typeCarburant1;
 	}
 
-	public void setTypeCarburant1(String typeCarburant1) {
-		this.typeCarburant1 = typeCarburant1;
+	@Override
+	public String toString() {
+		return "Pompe [typeCarburant1=" + typeCarburant1 + ", contenance=" + contenance + ", contenu=" + contenu + "]";
 	}
-
 }

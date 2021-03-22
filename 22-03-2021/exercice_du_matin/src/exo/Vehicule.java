@@ -27,7 +27,7 @@ public class Vehicule {
 				affiche_info_apres_replissage(toFill, obj1.getContenu(), obj2.getContenuReservoir());
 			}
 		} else {
-			System.out.println("No pomp with the same carburant");
+			System.out.println("C'est une pompe à essence");
 		}
 	}
 
