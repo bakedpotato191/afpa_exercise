@@ -2,7 +2,7 @@ package exo;
 
 public class Moto extends Vehicule {
 
-	private byte nombreRoues = 2;
+	private final byte nombreRoues = 2;
 	private String typeCarburant;
 	private short maxVitesse;
 	private byte contenanceReservoir;
@@ -10,7 +10,6 @@ public class Moto extends Vehicule {
 
 	public Moto() {
 		super();
-		this.nombreRoues = 2;
 		this.typeCarburant = "essence";
 		this.maxVitesse = 140;
 	}
@@ -18,7 +17,6 @@ public class Moto extends Vehicule {
 	public Moto(byte nombreRoues, String typeCarburant, short maxVitesse, byte contenanceReservoir,
 			byte contenuReservoir) {
 		super();
-		this.nombreRoues = nombreRoues;
 		this.typeCarburant = typeCarburant;
 		this.maxVitesse = maxVitesse;
 		this.contenanceReservoir = contenanceReservoir;
@@ -27,10 +25,6 @@ public class Moto extends Vehicule {
 
 	public byte getNombreRoues() {
 		return nombreRoues;
-	}
-
-	public void setNombreRoues(byte nombreRoues) {
-		this.nombreRoues = nombreRoues;
 	}
 
 	public String getTypeCarburant() {

@@ -2,7 +2,7 @@ package exo;
 
 public class Voiture extends Vehicule {
 
-	private final int nombreRoues = 4;
+	private final byte nombreRoues = 4;
 	private String typeCarburant;
 	private int maxVitesse;
 	private int contenanceReservoir;
