@@ -1,62 +1,69 @@
 package matin;
 
 public class Vehicule {
-	private static byte toFill;
-	private static short pContenu;
-	private static byte vContenance;
-	private static byte vContenu;
-	private static String pCarburant;
-	private static String vCarburant;
 
-	public static void fairePlein(Pompe p1, Voiture v1) {
-		pCarburant = p1.getTypeCarburant1();
-		vCarburant = v1.getTypeCarburant();
+	protected String typeCarburant;
+	private int contenanceReservoir;
+	private double contenuReservoir;
+	private int vitesseMax;
+	private int nombreRoue;
 
-		if (pCarburant.equals(vCarburant)) {
+	public String getTypeCarburant() {
+		return typeCarburant;
+	}
 
-			pContenu = p1.getContenu();
-			vContenance = v1.getContenanceReservoir();
-			vContenu = v1.getContenuReservoir();
+	public void setTypeCarburant(String typeCarburant) {
+		this.typeCarburant = typeCarburant;
+	}
 
-			if (p1.getContenu() > (v1.getContenanceReservoir() - v1.getContenuReservoir())) {
-				toFill = (byte) (vContenance - vContenu);
+	public int getContenanceReservoir() {
+		return contenanceReservoir;
+	}
 
-				affiche_info_avant_remplissage(toFill, pContenu, vContenance, vContenu);
+	public void setContenanceReservoir(int contenanceReservoir) {
+		this.contenanceReservoir = contenanceReservoir;
+	}
 
-				v1.setContenuReservoir(vContenance);
-				p1.setContenu((short) (pContenu - toFill));
-				pContenu = p1.getContenu();
+	public double getContenuReservoir() {
+		return contenuReservoir;
+	}
 
-				affiche_info_apres_replissage(pContenu, vContenance);
-			} else {
-				toFill = (byte) pContenu;
+	public void setContenuReservoir(double contenuReservoir) {
+		this.contenuReservoir = contenuReservoir;
+	}
 
-				affiche_info_avant_remplissage(toFill, pContenu, vContenance, vContenu);
+	public int getVitesseMax() {
+		return vitesseMax;
+	}
 
-				v1.setContenuReservoir((byte) (vContenu + toFill));
-				p1.setContenu((short) 0);
+	public void setVitesseMax(int vitesseMax) {
+		this.vitesseMax = vitesseMax;
+	}
 
-				pContenu = p1.getContenu();
-				vContenu = v1.getContenuReservoir();
+	public int getNombreRoue() {
+		return nombreRoue;
+	}
 
-				affiche_info_apres_replissage(pContenu, vContenu);
+	public void setNombreRoue(int nombreRoue) {
+		this.nombreRoue = nombreRoue;
+	}
+
+	public void fairePlein(Pompe p1) {
+		System.out.println("J'arrive à la pompe");
+		if (this.typeCarburant == p1.getTypeCarburant()) {
+
+			double besoinEnCarburant = this.contenanceReservoir - this.contenuReservoir;
+			System.out.println("J'ai besoin de \n\t ==>" + besoinEnCarburant + " litre(s)");
+			if (besoinEnCarburant > p1.getContenu()) {
+				besoinEnCarburant = p1.getContenu();
 			}
+			System.out.println("Faire le plein en ajoutant au contenu ce que j'ai besoin pour remplir");
+			this.contenuReservoir += besoinEnCarburant;
+			double nouveauContenuPompe = p1.getContenu() - besoinEnCarburant;
+			p1.setContenu(nouveauContenuPompe);
+
 		} else {
-			System.out.println("Utiliser une autre pompe");
+			System.out.println("Je vais changer de pompe ...");
 		}
 	}
-
-	private static void affiche_info_avant_remplissage(byte tf, short c1, byte c2, byte c3) {
-		System.out.println("Niveau actuel d'essence dans la pompe: " + c1);
-		System.out.println("Capacité du réservoir d'essence dans la voiture: " + c2);
-		System.out.println("Niveau d'essence actuel dans la voiture: " + c3);
-		System.out.println("Essence à remplir : " + tf);
-		System.out.println("<---Remplissage du Réservoir ---->");
-	}
-
-	private static void affiche_info_apres_replissage(int c1, int c2) {
-		System.out.println("Niveau d'essence dans la pompe après le remplissage: " + c1);
-		System.out.println("Niveau d'essence dans la voiture après le remplissage: " + c2);
-	}
-
 }

@@ -1,20 +1,27 @@
 package matin;
 
 public class Pompe {
-	private final String typeCarburant1 = "essence";
+	private String typeCarburant;
 	private short contenance;
-	private short contenu;
+	private double contenu;
 
 	public Pompe() {
 		super();
-		this.contenance = 450;
-		this.contenu = 235;
 	}
 
-	public Pompe(short contenance, short contenu) {
+	public Pompe(String typeCarburant, short contenance, double contenu) {
 		super();
+		this.typeCarburant = typeCarburant;
 		this.contenance = contenance;
 		this.contenu = contenu;
+	}
+
+	public String getTypeCarburant() {
+		return typeCarburant;
+	}
+
+	public void setTypeCarburant(String typeCarburant) {
+		this.typeCarburant = typeCarburant;
 	}
 
 	public short getContenance() {
@@ -25,20 +32,17 @@ public class Pompe {
 		this.contenance = contenance;
 	}
 
-	public short getContenu() {
+	public double getContenu() {
 		return contenu;
 	}
 
-	public void setContenu(short s) {
-		this.contenu = s;
-	}
-
-	public String getTypeCarburant1() {
-		return typeCarburant1;
+	public void setContenu(double nouveauContenuPompe) {
+		this.contenu = nouveauContenuPompe;
 	}
 
 	@Override
 	public String toString() {
-		return "Pompe [typeCarburant1=" + typeCarburant1 + ", contenance=" + contenance + ", contenu=" + contenu + "]";
+		return "Pompe [typeCarburant=" + typeCarburant + ", contenance=" + contenance + ", contenu=" + contenu + "]";
 	}
+
 }
