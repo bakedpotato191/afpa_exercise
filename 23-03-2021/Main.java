@@ -1,17 +1,23 @@
 package das;
 
+import java.util.ArrayList;
+
 public class Main {
 
 	public static void main(String[] args) {
 
-		Personne[] personnes = new Personne[3];
+		ArrayList<Metier> m = new ArrayList<Metier>();
+		ArrayList<Personne> p = new ArrayList<Personne>();
 
-		personnes[0] = new Personne("Paul", "Random");
-		personnes[1] = new Personne("Jean", "Random");
-		personnes[2] = new Personne("Adrien", "Random");
+		m.add(new Metier("Menuisier"));
+		m.add(new Metier("Plombier"));
 
-		for (int i = 0; i < personnes.length; i++) {
-			personnes[i].affiche();
+		p.add(new Personne("John", "Doe", m.get(0)));
+		p.add(new Personne("Juan", "Doe1", m.get(1)));
+		p.add(new Personne("Jane", "Doe2", m.get(0)));
+
+		for (Personne i : p) {
+			System.out.println(i);
 		}
 	}
 

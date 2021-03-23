@@ -3,16 +3,18 @@ package das;
 public class Personne {
 	private String nom;
 	private String prenom;
+	private Metier nomMetier;
 
 	public Personne() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Personne(String nom, String prenom) {
+	public Personne(String nom, String prenom, Metier nomMetier) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
+		this.nomMetier = nomMetier;
 	}
 
 	public String getNom() {
@@ -31,8 +33,9 @@ public class Personne {
 		this.prenom = prenom;
 	}
 
-	public void affiche() {
-		System.out.println("Personne [nom=" + nom + ", prenom=" + prenom + "]");
+	@Override
+	public String toString() {
+		return "Personne [nom=" + nom + ", prenom=" + prenom + ", nomMetier=" + nomMetier + "]";
 	}
 
 }
