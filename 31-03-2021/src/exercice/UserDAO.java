@@ -13,12 +13,12 @@ public class UserDAO implements IDAO<User> {
 	PreparedStatement ps;
 
 	@Override
-	public List<User> readEmail(String email) {
+	public List<User> readEmail(User object) {
 		List<User> liste = new ArrayList<>();
 
 		try {
 			ps = conn.prepareStatement("SELECT * FROM user WHERE email=?");
-			ps.setString(1, email);
+			ps.setString(1, object.getEmail());
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
@@ -35,6 +35,7 @@ public class UserDAO implements IDAO<User> {
 			try {
 				ps.close();
 				conn.close();
+				System.out.println("Connection closed");
 			} catch (SQLException ex) {
 				ex.getMessage();
 			}

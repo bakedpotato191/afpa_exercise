@@ -84,7 +84,8 @@ public class UI extends JFrame {
 				JOptionPane.showMessageDialog(connect, "Veuillez remplir tous les champs");
 			} else {
 				UserDAO user = new UserDAO();
-				if (user.readEmail(em).isEmpty()) {
+				User u = new User(em, pw);
+				if (user.readEmail(u).isEmpty()) {
 					JOptionPane.showMessageDialog(connect, "Login ou mot de passe incorrects");
 				} else {
 					JOptionPane.showMessageDialog(connect, "Bienvenue");

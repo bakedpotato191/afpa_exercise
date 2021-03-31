@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface IDAO<T> {
 
-	public List<User> readEmail(String email);
+	List<User> readEmail(User object);
 }
