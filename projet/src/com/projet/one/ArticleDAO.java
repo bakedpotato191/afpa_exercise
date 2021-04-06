@@ -9,8 +9,9 @@ import java.util.List;
 
 public class ArticleDAO {
 
-	Connection conn = DataSource.getConnection();
 	private static final String WHEREID = " WHERE id=?";
+
+	Connection conn = DataSource.getConnection();
 
 	public void create(Article object) {
 

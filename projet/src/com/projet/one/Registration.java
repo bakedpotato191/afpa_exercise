@@ -26,6 +26,7 @@ public class Registration extends JFrame {
 	private static final String SANSSERIF = "SansSerif";
 
 	public Registration() {
+
 		this.setSize(320, 270);
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
@@ -37,6 +38,7 @@ public class Registration extends JFrame {
 	}
 
 	private JPanel panel() {
+
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		panel.add(nomLabel());
@@ -53,6 +55,7 @@ public class Registration extends JFrame {
 	}
 
 	private JLabel nomLabel() {
+
 		JLabel nom = new JLabel("Nom");
 		nom.setFont(new Font(SANSSERIF, Font.PLAIN, 14));
 		nom.setBounds(10, 30, 69, 14);
@@ -61,6 +64,7 @@ public class Registration extends JFrame {
 	}
 
 	private JLabel prenomLabel() {
+
 		JLabel prenom = new JLabel("Prenom");
 		prenom.setFont(new Font(SANSSERIF, Font.PLAIN, 14));
 		prenom.setBounds(10, 70, 69, 14);
@@ -69,6 +73,7 @@ public class Registration extends JFrame {
 	}
 
 	private JLabel emailLabel() {
+
 		JLabel email = new JLabel("Email");
 		email.setFont(new Font(SANSSERIF, Font.PLAIN, 14));
 		email.setBounds(10, 110, 69, 14);
@@ -77,6 +82,7 @@ public class Registration extends JFrame {
 	}
 
 	private JLabel passwordLabel() {
+
 		JLabel password = new JLabel("Password");
 		password.setFont(new Font(SANSSERIF, Font.PLAIN, 14));
 		password.setBounds(10, 150, 69, 14);
@@ -85,6 +91,7 @@ public class Registration extends JFrame {
 	}
 
 	private JTextField nomField() {
+
 		nomField = new JTextField();
 		nomField.setBounds(80, 29, 190, 20);
 		nomField.setColumns(10);
@@ -93,6 +100,7 @@ public class Registration extends JFrame {
 	}
 
 	private JTextField prenomField() {
+
 		prenomField = new JTextField();
 		prenomField.setBounds(80, 69, 190, 20);
 		prenomField.setColumns(10);
@@ -101,6 +109,7 @@ public class Registration extends JFrame {
 	}
 
 	private JTextField emailField() {
+
 		emailField = new JTextField();
 		emailField.setBounds(80, 109, 190, 20);
 		emailField.setColumns(10);
@@ -109,6 +118,7 @@ public class Registration extends JFrame {
 	}
 
 	private JPasswordField passwordField() {
+
 		passwordField = new JPasswordField();
 		passwordField.setBounds(80, 149, 190, 20);
 
@@ -116,6 +126,7 @@ public class Registration extends JFrame {
 	}
 
 	private JButton registerButton() {
+
 		JButton registerButton = new JButton("Register");
 
 		registerButton.addActionListener(e -> {
@@ -150,6 +161,7 @@ public class Registration extends JFrame {
 	}
 
 	private void setLookAndFeel() {
+
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException

@@ -33,6 +33,7 @@ public class Login extends JFrame {
 	private JPasswordField passwordField;
 
 	public Login() {
+
 		super();
 		this.setSize(330, 300);
 		this.setResizable(false);
@@ -46,6 +47,7 @@ public class Login extends JFrame {
 	}
 
 	private JPanel panel() {
+
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		panel.add(emailLabel());
@@ -60,6 +62,7 @@ public class Login extends JFrame {
 	}
 
 	private JPasswordField passwordField() {
+
 		passwordField = new JPasswordField();
 		passwordField.setBounds(84, 111, 210, 25);
 
@@ -67,6 +70,7 @@ public class Login extends JFrame {
 	}
 
 	private JLabel passwordLabel() {
+
 		JLabel pl = new JLabel("Password");
 		pl.setBounds(10, 112, 64, 19);
 		pl.setFont(new Font(SANSSERIF, Font.PLAIN, 14));
@@ -75,6 +79,7 @@ public class Login extends JFrame {
 	}
 
 	private JLabel emailLabel() {
+
 		JLabel emailLabel = new JLabel("Email");
 		emailLabel.setBounds(10, 51, 56, 19);
 		emailLabel.setFont(new Font(SANSSERIF, Font.PLAIN, 14));
@@ -122,6 +127,7 @@ public class Login extends JFrame {
 	}
 
 	private JSeparator separator() {
+
 		JSeparator separator = new JSeparator();
 		separator.setBounds(10, 194, 297, 2);
 
@@ -129,6 +135,7 @@ public class Login extends JFrame {
 	}
 
 	private JLabel registerLabel() {
+
 		JLabel registerLabel = new JLabel("Create account");
 		registerLabel.setBounds(109, 209, 96, 18);
 		registerLabel.setFont(new Font(SANSSERIF, Font.PLAIN, 13));
@@ -145,6 +152,7 @@ public class Login extends JFrame {
 	}
 
 	private JMenuBar menuBar() {
+
 		JMenuBar mB = new JMenuBar();
 		mB.add(editMenu());
 		mB.add(aboutMenu());
@@ -153,6 +161,7 @@ public class Login extends JFrame {
 	}
 
 	private JMenu editMenu() {
+
 		JMenu edit = new JMenu("Edit");
 		edit.add(copy());
 		edit.add(paste());
@@ -186,6 +195,7 @@ public class Login extends JFrame {
 	}
 
 	private JMenu aboutMenu() {
+
 		JMenu about = new JMenu("Help");
 
 		about.add(helpMenuItem());
@@ -206,6 +216,7 @@ public class Login extends JFrame {
 	}
 
 	private void setLookAndFeel() {
+
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException

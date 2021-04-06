@@ -1,12 +1,11 @@
 package com.projet.one;
 
-public class User
-{
+public class User {
 	private String nom;
 	private String prenom;
 	private String email;
 	private String password;
-	
+
 	public User() {
 		super();
 	}
@@ -50,6 +49,5 @@ public class User
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
+
 }
