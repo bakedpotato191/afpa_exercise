@@ -117,8 +117,10 @@ public class Login extends JFrame {
 				UserDAO connection = new UserDAO();
 
 				if (connection.userExists(emailText, password)) {
+					dispose();
 					HomePage home = new HomePage();
 					home.setVisible(true);
+
 				} else {
 					JOptionPane.showMessageDialog(null, "Incorrect email or password");
 				}
