@@ -1,0 +1,6 @@
+package com.projet.dao;
+
+public interface IDAO<T> {
+
+	public void create(T object);
+}
