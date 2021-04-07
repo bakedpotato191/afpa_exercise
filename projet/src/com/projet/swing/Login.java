@@ -113,7 +113,9 @@ public class Login extends JFrame {
 			if (emailText.equals("") || password.equals("")) {
 				JOptionPane.showMessageDialog(null, "Email or Password field is empty");
 			} else {
+
 				UserDAO connection = new UserDAO();
+
 				if (connection.userExists(emailText, password)) {
 					HomePage home = new HomePage();
 					home.setVisible(true);

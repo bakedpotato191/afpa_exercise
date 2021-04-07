@@ -153,6 +153,8 @@ public class Registration extends JFrame {
 				user.setPassword(hashedPassword);
 
 				register.create(user);
+
+				JOptionPane.showMessageDialog(null, "You will receive a confirmation email shortly");
 			}
 		});
 
