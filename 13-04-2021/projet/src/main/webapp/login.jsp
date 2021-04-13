@@ -35,7 +35,7 @@
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-<a href="<%= request.getContextPath() + "/registration.jsp" %>">Register</a>
+<a href="<%= request.getContextPath() + "/Registration" %>">Register</a>
 </div>
 
 </body>

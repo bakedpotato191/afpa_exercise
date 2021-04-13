@@ -43,7 +43,7 @@
   	</div>
   	<button type="submit" class="btn btn-primary">Submit</button>
 </form>
-<a href="<%= request.getContextPath() + "/login.jsp" %>">Go to Login Page</a>
+<a href="<%= request.getContextPath() + "/Login" %>">Go to Login Page</a>
 </div>
 
 </body>
