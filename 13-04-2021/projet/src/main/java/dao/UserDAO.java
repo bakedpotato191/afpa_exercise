@@ -5,15 +5,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import at.favre.lib.crypto.bcrypt.BCrypt;
-import at.favre.lib.crypto.bcrypt.BCrypt.Result;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+
 import datasource.DataSource;
 import model.User;
 
 public class UserDAO implements IDAO<User> {
 
 	Connection conn = DataSource.getConnection();
-	
+
 	@Override
 	public boolean create(User object) {
 		boolean created = false;
@@ -39,21 +39,19 @@ public class UserDAO implements IDAO<User> {
 			}
 		}
 		return created;
-		
+
 	}
-	
-	public boolean userExists(String email, String password) {
 
-		boolean exists = false;
+	public User login(String email, String password) {
 
-		try (PreparedStatement ps = conn.prepareStatement("SELECT password from users" + " WHERE email=?")) {
+		try (PreparedStatement ps = conn.prepareStatement("SELECT * from users" + " WHERE email=?")) {
 
 			ps.setString(1, email);
 			ResultSet rs = ps.executeQuery();
 
-			if (rs.next()) {
-				Result result = BCrypt.verifyer().verify(password.toCharArray(), rs.getString("password"));
-				exists = result.verified;
+			if (rs.next() && BCrypt.checkpw(password, rs.getString("password"))) {
+				return new User(rs.getString("nom"), rs.getString("prenom"), rs.getString("email"),
+						rs.getString("password"));
 			}
 
 		} catch (SQLException ex) {
@@ -68,7 +66,7 @@ public class UserDAO implements IDAO<User> {
 			}
 		}
 
-		return exists;
+		return null;
 	}
 
 }

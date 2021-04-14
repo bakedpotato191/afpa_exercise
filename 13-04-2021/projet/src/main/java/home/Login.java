@@ -3,7 +3,6 @@ package home;
 import java.io.IOException;
 
 import dao.UserDAO;
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -22,7 +21,7 @@ public class Login extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+		request.getRequestDispatcher("/login.jsp").forward(request, response);
 	}
 
 	@Override
@@ -32,22 +31,17 @@ public class Login extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 
-		if (email.isBlank() || password.isBlank()) {
-			RequestDispatcher req = request.getRequestDispatcher("fail.jsp");
-			req.include(request, response);
+		UserDAO user = new UserDAO();
+
+		if (user.login(email, password) != null) {
+			String prenom = user.login(email, password).getPrenom();
+
+			request.setAttribute("prenom", prenom);
+			request.getRequestDispatcher("/Bienvenue").forward(request, response);
+
 		} else {
-
-			UserDAO user = new UserDAO();
-
-			if (user.userExists(email, password)) {
-				RequestDispatcher req = request.getRequestDispatcher("welcome.jsp");
-				req.include(request, response);
-
-			} else {
-				request.setAttribute("message", "Oups, email ou mot de passe incorrect");
-				request.getRequestDispatcher("/login.jsp").forward(request, response);
-			}
+			request.setAttribute("message", "Oups, email ou mot de passe incorrect");
+			request.getRequestDispatcher("/login.jsp").include(request, response);
 		}
 	}
-
 }

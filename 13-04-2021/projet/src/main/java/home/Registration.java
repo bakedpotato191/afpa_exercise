@@ -2,7 +2,8 @@ package home;
 
 import java.io.IOException;
 
-import at.favre.lib.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+
 import dao.UserDAO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -37,12 +38,12 @@ public class Registration extends HttpServlet {
 		String prenom = request.getParameter("prenom");
 
 		if (email.isBlank() || password.isBlank() || nom.isBlank() || prenom.isBlank()) {
-			RequestDispatcher req = request.getRequestDispatcher("fail.jsp");
+			RequestDispatcher req = request.getRequestDispatcher("/fail.jsp");
 			req.include(request, response);
 		} else {
 
 			User user = new User();
-			String hashedPassword = BCrypt.withDefaults().hashToString(12, password.toCharArray());
+			String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt(12));
 
 			user.setNom(nom);
 			user.setPrenom(prenom);

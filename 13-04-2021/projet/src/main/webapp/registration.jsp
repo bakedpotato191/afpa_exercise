@@ -42,11 +42,10 @@
     	<label class="form-check-label" for="exampleCheck1">Check me out</label>
   	</div>
   	<button type="submit" class="btn btn-primary btn-margin">Submit</button> 
-  	<div class="alert alert-primary" role="alert">
+  	<div class="alert alert-light" role="alert">
 	  ${message}
 	</div>
 </form>
-<a href="<%= request.getContextPath() + "/Login" %>">Go to Login Page</a>
 </div>
 
 </body>

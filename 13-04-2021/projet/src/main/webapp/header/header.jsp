@@ -3,10 +3,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="<%= request.getContextPath() + "/login.jsp" %>">Home</a>
+          <a class="nav-link active" aria-current="page" href="<%= request.getContextPath() + "/Login" %>">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<%= request.getContextPath() + "/propos.jsp" %>">A propos</a>
+          <a class="nav-link active" aria-current="page" href="<%= request.getContextPath() + "/Registration" %>">Create Account</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= request.getContextPath() + "/Propos" %>">A propos</a>
         </li>
       </ul>
       <form class="d-flex">
