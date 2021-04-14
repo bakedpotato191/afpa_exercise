@@ -29,45 +29,33 @@ public class UserDAO implements IDAO<User> {
 
 			ps.executeUpdate();
 			created = true;
+
+			conn.close();
+
 		} catch (SQLException ex) {
 			ex.getMessage();
 		}
 
-		finally {
-			try {
-				conn.close();
-			} catch (SQLException ex) {
-				ex.getMessage();
-			}
-		}
 		return created;
 
 	}
 
 	public User login(String email, String password) {
 
-		try (PreparedStatement ps = conn.prepareStatement("SELECT * from users" + " WHERE email=?")) {
+		try (PreparedStatement ps = conn.prepareStatement("SELECT * FROM users" + " WHERE email=?")) {
 
 			ps.setString(1, email);
 			ResultSet rs = ps.executeQuery();
 
-			while (rs.next()) {
-				if (BCrypt.checkpw(password, rs.getString("password"))) {
-					return new User(rs.getString("nom"), rs.getString("prenom"), rs.getString("email"),
-							rs.getString("password"));
-				}
+			if (rs.next() && BCrypt.checkpw(password, rs.getString("password"))) {
+				return new User(rs.getString("nom"), rs.getString("prenom"), rs.getString("email"),
+						rs.getString("password"));
 			}
+
+			conn.close();
 
 		} catch (SQLException ex) {
 			ex.getMessage();
-		}
-
-		finally {
-			try {
-				conn.close();
-			} catch (SQLException ex) {
-				ex.getMessage();
-			}
 		}
 
 		return null;

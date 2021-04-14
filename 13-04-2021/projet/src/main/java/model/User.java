@@ -5,9 +5,9 @@ public class User {
 	private String prenom;
 	private String email;
 	private String password;
-	
+
 	public User() {
-		super();
+
 	}
 
 	public User(String nom, String prenom, String email, String password) {
@@ -49,6 +49,5 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
+
 }
