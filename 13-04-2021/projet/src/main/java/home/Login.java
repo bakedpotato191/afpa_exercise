@@ -35,10 +35,11 @@ public class Login extends HttpServlet {
 
 		if (user.login(email, password) != null) {
 
-			String nom = user.login(email, password).getNom();
 			String prenom = user.login(email, password).getPrenom();
+			String nom = user.login(email, password).getNom();
 
-			request.setAttribute("prenom", "Bravo " + prenom + " " + nom);
+			request.setAttribute("prenom", prenom);
+			request.setAttribute("nom", nom);
 			request.getRequestDispatcher("/Bienvenue").forward(request, response);
 
 		} else {

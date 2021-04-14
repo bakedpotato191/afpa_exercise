@@ -19,7 +19,7 @@
 <%@ include file="/header/header.jsp" %>
 
 <div class="container">
-<a><strong>Bienvenue ${prenom} !!!!</strong></a>
+<a><strong>Bienvenue ${prenom} ${nom} !!!!</strong></a>
 
 </div>
 
