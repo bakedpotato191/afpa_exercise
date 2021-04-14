@@ -2,5 +2,5 @@ package dao;
 
 public interface IDAO<T> {
 	
-	public void create(T object);
+	public boolean create(T object);
 }

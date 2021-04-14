@@ -15,7 +15,8 @@ public class UserDAO implements IDAO<User> {
 	Connection conn = DataSource.getConnection();
 	
 	@Override
-	public void create(User object) {
+	public boolean create(User object) {
+		boolean created = false;
 		try (PreparedStatement ps = conn
 				.prepareStatement("INSERT INTO users (nom, prenom, email, password) VALUES (?,?,?,?)")) {
 
@@ -25,6 +26,7 @@ public class UserDAO implements IDAO<User> {
 			ps.setString(4, object.getPassword());
 
 			ps.executeUpdate();
+			created = true;
 		} catch (SQLException ex) {
 			ex.getMessage();
 		}
@@ -36,6 +38,7 @@ public class UserDAO implements IDAO<User> {
 				ex.getMessage();
 			}
 		}
+		return created;
 		
 	}
 	
