@@ -16,7 +16,9 @@ public class UserDAO implements IDAO<User> {
 
 	@Override
 	public boolean create(User object) {
+
 		boolean created = false;
+
 		try (PreparedStatement ps = conn
 				.prepareStatement("INSERT INTO users (nom, prenom, email, password) VALUES (?,?,?,?)")) {
 
@@ -49,9 +51,11 @@ public class UserDAO implements IDAO<User> {
 			ps.setString(1, email);
 			ResultSet rs = ps.executeQuery();
 
-			if (rs.next() && BCrypt.checkpw(password, rs.getString("password"))) {
-				return new User(rs.getString("nom"), rs.getString("prenom"), rs.getString("email"),
-						rs.getString("password"));
+			while (rs.next()) {
+				if (BCrypt.checkpw(password, rs.getString("password"))) {
+					return new User(rs.getString("nom"), rs.getString("prenom"), rs.getString("email"),
+							rs.getString("password"));
+				}
 			}
 
 		} catch (SQLException ex) {

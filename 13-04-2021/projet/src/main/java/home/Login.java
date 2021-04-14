@@ -34,14 +34,16 @@ public class Login extends HttpServlet {
 		UserDAO user = new UserDAO();
 
 		if (user.login(email, password) != null) {
+
+			String nom = user.login(email, password).getNom();
 			String prenom = user.login(email, password).getPrenom();
 
-			request.setAttribute("prenom", prenom);
+			request.setAttribute("prenom", "Bravo " + prenom + " " + nom);
 			request.getRequestDispatcher("/Bienvenue").forward(request, response);
 
 		} else {
 			request.setAttribute("message", "Oups, email ou mot de passe incorrect");
-			request.getRequestDispatcher("/login.jsp").include(request, response);
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
 		}
 	}
 }

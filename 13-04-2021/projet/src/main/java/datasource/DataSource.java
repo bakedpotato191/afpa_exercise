@@ -7,6 +7,7 @@ import java.sql.SQLException;
 public class DataSource {
 
 	public static Connection getConnection() {
+
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
 		} catch (Exception e) {
@@ -23,7 +24,7 @@ public class DataSource {
 		try {
 			conn = DriverManager.getConnection(url + host + database, user, password);
 		} catch (SQLException ex) {
-
+			ex.getMessage();
 		}
 		return conn;
 	}
