@@ -1,0 +1,57 @@
+@charset "UTF-8";
+@import "header.css";
+
+article {
+  margin: 50px auto;
+  width: 800px;
+}
+
+img {
+  width: 800px;
+  padding-top: 20px;
+}
+
+h1 {
+  padding-top: 50px;
+  font-size: 2rem;
+}
+
+#content{
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+span{
+	color: #9a9a9a;
+}
+
+#panel{
+	display: block;
+	margin: 0 auto;
+	width: 800px;
+}
+
+form {
+	display: inline-block;
+}
+
+input{
+	cursor: pointer;
+  	display: inline-block;
+  	width: 120px;
+  	font-size: 16px;
+  	padding: 7px 10px;
+  	color: white;
+  	border-radius: 16px;
+}
+
+#editbtn{
+	background-color: black;
+	border: 1px solid black;
+}
+
+#deletebtn{
+  	margin-left: 20px;
+	background-color: red;
+	border: 1px solid red;
+}

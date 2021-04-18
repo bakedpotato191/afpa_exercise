@@ -1,0 +1,74 @@
+@charset "UTF-8";
+@import "header.css";
+
+form {
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: 800px;
+}
+
+.grandParentContainer {
+  display: table;
+  height: 100%;
+  margin: 50px auto;
+}
+
+.parentContainer {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+input{
+	width: 600px;
+	height: 20px;
+	margin-bottom: 20px;
+	padding: 7px 15px;
+}
+
+#dateContainer, #titleContainer, #descriptionContainer, #imageContainer {
+	margin-bottom: 10px;
+}
+
+label {
+	float: left;
+}
+
+#contentInput {
+	width: 600px;
+	height: 410px;
+	margin-bottom: 10px;
+	resize: none;
+}
+
+#descriptionInput{
+	width: 600px;
+	height: 100px;
+	margin-bottom: 10px;
+	resize: none;
+}
+
+#saveButton, #cancelButton{
+	width: 120px;
+	height: 30px;
+	padding: 5px 8px;
+	color: white;
+	font-size: 16px;
+	border-radius: 16px;
+	display: inline-block;
+
+}
+
+#saveButton{
+	background-color: green;
+	border: 1px solid green;
+	margin-right: 50px;
+	cursor: pointer;
+}
+
+#cancelButton{
+	margin-left: 50px;
+	background-color: red;
+	border: 1px solid red;
+	cursor: pointer;
+}

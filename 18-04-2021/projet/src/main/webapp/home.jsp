@@ -1,0 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home Page</title>
+<link rel="stylesheet" href="<%= request.getContextPath() +"/assets/css/home.css" %>">
+
+</head>
+<body>
+
+<%@ include file="/header/header.jsp" %>
+
+	<section>
+ 	<c:forEach var="article" items="${list}">
+
+ 		<c:url var="loadArticle" value="/Article">
+            <c:param name="id" value="${article.id}"/>
+        </c:url>
+
+    	<a href="${loadArticle}">
+ 		<div class="article">
+   			<img src="${article.image}" alt="image">
+   			<h2>${article.title}</h2>
+ 		</div>
+ 		</a>
+	</c:forEach>
+ 	</section>
+</body>
+</html>
