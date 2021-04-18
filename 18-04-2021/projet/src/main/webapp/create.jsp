@@ -2,10 +2,10 @@
     pageEncoding="ISO-8859-1"%>
     
 <!DOCTYPE html>
-<html lang="en-US">
+<html>
 <head>
 <meta charset="utf-8">
-<title>${id}</title>
+<title>Create article</title>
 <link rel="stylesheet" href="<%= request.getContextPath() +"/assets/css/edit.css" %>">
 </head>
 <body>
@@ -14,34 +14,35 @@
 <div class="grandParentContainer">
 	<div class="parentContainer">
 		<form method="post">
-				<h2 id="editForm"> Edit article</h2>
+				<h2 id="editForm">Create article</h2>
 
 			<div id="dateContainer">
 				<label for="imageInput">Date:</label>
-				<input type="datetime-local" id="dateInput" name="date" placeholder="2021-04-18 17:28:23" value="${date}" required autocomplete="off"></input>
+				<input type="datetime-local" id="dateInput" name="date" placeholder="Date" required autocomplete="off"></input>
 			</div>
 		
 			<div id="titleContainer">
 				<label for="imageInput">Title:</label>
-				<input type="text" id="titleInput" name="title" placeholder="Title" value="${title}" required autocomplete="off"></input>
+				<input type="text" id="titleInput" name="title" placeholder="Title" required autocomplete="off"></input>
 			</div>
 			
 			<div id="imageContainer">
 				<label for="imageInput">Upload image</label>
-				<input type="text" id="image" name="image" value="${image}" accept="image/png, image/jpeg">
+				<input type="text" id="image" name="image" placeholder="/assets/images/image1.jpg" accept="image/png, image/jpeg">
 			</div>
 			
 			<div id="descriptionContainer">
 				<label for="imageInput">Description:</label>
-				<textarea id="descriptionInput" name="description" placeholder="Description" required autocomplete="off">${description}</textarea>
+				<textarea id="descriptionInput" name="description" placeholder="Description" required autocomplete="off"></textarea>
 			</div>
 			
 			<div id="contentContainer">
 				<label for="imageInput">Content:</label>
-				<textarea id="contentInput" name="content" placeholder="Content" required autocomplete="off">${content}</textarea>
+				<textarea id="contentInput" name="content" placeholder="Content" required autocomplete="off"></textarea>
 			</div>
 			
-				<input type="submit" id="saveButton" name="action" value="Save">
+				<input type="submit" id="saveButton" name="action" value="Submit">
+
 			<div id="error" role="alert">
 	  			${message}
 			</div>

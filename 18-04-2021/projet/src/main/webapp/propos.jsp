@@ -1,10 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="ISO-8859-1"%>
+    
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-<meta charset="ISO-8859-1">
-<title>About Us</title>
+<meta charset="utf-8">
+<title>A propos de nous</title>
+<link rel="stylesheet" href="<%= request.getContextPath() +"/assets/css/propos.css" %>">
 
 </head>
 <body>

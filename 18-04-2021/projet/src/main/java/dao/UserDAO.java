@@ -7,20 +7,19 @@ import java.sql.SQLException;
 
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
+import bean.User;
 import datasource.DataSource;
-import model.User;
 
 public class UserDAO implements IDAO<User> {
-
-	Connection conn = DataSource.getConnection();
 
 	@Override
 	public boolean create(User object) {
 
 		boolean created = false;
 
-		try (PreparedStatement ps = conn
-				.prepareStatement("INSERT INTO users (nom, prenom, email, password) VALUES (?,?,?,?)")) {
+		try (Connection conn = DataSource.getConnection();
+				PreparedStatement ps = conn
+						.prepareStatement("INSERT INTO users (nom, prenom, email, password) VALUES (?,?,?,?)")) {
 
 			ps.setString(1, object.getNom());
 			ps.setString(2, object.getPrenom());
@@ -29,8 +28,6 @@ public class UserDAO implements IDAO<User> {
 
 			ps.executeUpdate();
 			created = true;
-
-			conn.close();
 
 		} catch (SQLException ex) {
 			ex.getMessage();
@@ -42,7 +39,8 @@ public class UserDAO implements IDAO<User> {
 
 	public User login(String email, String password) {
 
-		try (PreparedStatement ps = conn.prepareStatement("SELECT * FROM users" + " WHERE email=?")) {
+		try (Connection conn = DataSource.getConnection();
+				PreparedStatement ps = conn.prepareStatement("SELECT * FROM users" + " WHERE email=?")) {
 
 			ps.setString(1, email);
 			ResultSet rs = ps.executeQuery();
@@ -51,8 +49,6 @@ public class UserDAO implements IDAO<User> {
 				return new User(rs.getString("nom"), rs.getString("prenom"), rs.getString("email"),
 						rs.getString("password"));
 			}
-
-			conn.close();
 
 		} catch (SQLException ex) {
 			ex.getMessage();

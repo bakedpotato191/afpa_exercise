@@ -7,22 +7,20 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import bean.Article;
 import datasource.DataSource;
-import model.Article;
 
 public class ArticleDAO implements IDAO<Article> {
 
 	private static final String WHEREID = " WHERE id=?";
-	boolean success;
-
-	Connection conn = DataSource.getConnection();
 
 	public boolean create(Article object) {
 
-		success = false;
+		boolean created = false;
 
-		try (PreparedStatement ps = conn.prepareStatement(
-				"INSERT INTO articles (date, title, image, description, content) VALUES (?,?,?,?,?)")) {
+		try (Connection conn = DataSource.getConnection();
+				PreparedStatement ps = conn.prepareStatement(
+						"INSERT INTO articles (date, title, image, description, content) VALUES (?,?,?,?,?)")) {
 
 			ps.setString(1, object.getDate());
 			ps.setString(2, object.getTitle());
@@ -31,23 +29,22 @@ public class ArticleDAO implements IDAO<Article> {
 			ps.setString(5, object.getContent());
 			ps.executeUpdate();
 
-			success = true;
-
-			conn.close();
+			created = true;
 
 		} catch (SQLException ex) {
 			ex.getMessage();
 		}
 
-		return success;
+		return created;
 	}
 
 	public boolean update(Article object) {
 
-		success = false;
+		boolean updated = false;
 
-		try (PreparedStatement ps = conn
-				.prepareStatement("UPDATE articles SET date=?, title=?, image=?, description=?, content=?" + WHEREID)) {
+		try (Connection conn = DataSource.getConnection();
+				PreparedStatement ps = conn.prepareStatement(
+						"UPDATE articles SET date=?, title=?, image=?, description=?, content=?" + WHEREID)) {
 
 			ps.setString(1, object.getDate());
 			ps.setString(2, object.getTitle());
@@ -57,39 +54,39 @@ public class ArticleDAO implements IDAO<Article> {
 			ps.setString(6, object.getId());
 
 			ps.executeUpdate();
-			success = true;
-			conn.close();
+			updated = true;
 
 		} catch (SQLException ex) {
 			ex.getMessage();
 		}
 
-		return success;
+		return updated;
 	}
 
 	public boolean delete(String id) {
 
-		success = false;
+		boolean deleted = false;
 
-		try (PreparedStatement ps = conn.prepareStatement("DELETE FROM articles" + WHEREID)) {
+		try (Connection conn = DataSource.getConnection();
+				PreparedStatement ps = conn.prepareStatement("DELETE FROM articles" + WHEREID)) {
 
 			ps.setString(1, id);
 			ps.executeUpdate();
-
-			conn.close();
+			deleted = true;
 
 		} catch (SQLException ex) {
 			ex.getMessage();
 		}
 
-		return success;
+		return deleted;
 	}
 
 	public List<Article> read() {
 
 		List<Article> liste = new ArrayList<>();
 
-		try (PreparedStatement ps = conn.prepareStatement("SELECT * FROM articles")) {
+		try (Connection conn = DataSource.getConnection();
+				PreparedStatement ps = conn.prepareStatement("SELECT * FROM articles")) {
 
 			ResultSet rs = ps.executeQuery();
 
@@ -105,8 +102,6 @@ public class ArticleDAO implements IDAO<Article> {
 				liste.add(article);
 			}
 
-			conn.close();
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -117,7 +112,8 @@ public class ArticleDAO implements IDAO<Article> {
 
 	public Article readById(String id) {
 
-		try (PreparedStatement ps = conn.prepareStatement("SELECT * FROM articles" + WHEREID)) {
+		try (Connection conn = DataSource.getConnection();
+				PreparedStatement ps = conn.prepareStatement("SELECT * FROM articles" + WHEREID)) {
 
 			ps.setString(1, id);
 
@@ -127,8 +123,6 @@ public class ArticleDAO implements IDAO<Article> {
 				return new Article(id, rs.getString("date"), rs.getString("title"), rs.getString("image"),
 						rs.getString("description"), rs.getString("content"));
 			}
-
-			conn.close();
 
 		} catch (Exception e) {
 			e.printStackTrace();

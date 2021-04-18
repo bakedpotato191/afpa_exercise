@@ -1,4 +1,4 @@
-package home;
+package user;
 
 import java.io.IOException;
 
@@ -39,7 +39,7 @@ public class Login extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("utilisateur", user.login(email, password).getEmail());
 
-			request.getRequestDispatcher("/Article").forward(request, response);
+			request.getRequestDispatcher("/Home").forward(request, response);
 
 		} else {
 			request.setAttribute("message", "Oups, email ou mot de passe incorrect");

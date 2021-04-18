@@ -1,9 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="ISO-8859-1"%>
+    
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="utf-8">
 <title>${title}</title>
 <link rel="stylesheet" href="<%= request.getContextPath() +"/assets/css/article.css" %>">
 </head>
@@ -19,15 +20,18 @@
     <span>${description}</span>
     <p id="content">${content}</p>
   </article>
-
   <div id="panel">
-	<form action="" method="post">
+
+	<form method="post">
+	
     <input id="editbtn" type="submit" name="action" value="Edit article"/>
+    <input id="deletebtn" type="submit" name="action" value="Delete article"/>
+    
 	</form>
 	
-	<form action="" method="post">
-    <input id="deletebtn" type="submit" name="action" value="Delete article"/>
-	</form>
+	<div id="error" role="alert">
+	  ${message}
+	</div>
 </div>
 </div>
 </body>

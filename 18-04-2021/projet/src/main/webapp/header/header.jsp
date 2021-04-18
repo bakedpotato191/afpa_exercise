@@ -8,6 +8,14 @@
 				<a href="<%= request.getContextPath() + "/Home" %>">Home</a>
 			</li>
 			
+			<li id="createArticle">
+				<a href="<%= request.getContextPath() + "/Create" %>">Create article</a>
+			</li>
+			
+			<li id="propos">
+				<a href="<%= request.getContextPath() + "/Propos" %>">A propos</a>
+			</li>
+			
 			<c:if test="${empty utilisateur}">
 				<li id="register">
 		      		<a href="<%= request.getContextPath()+"/Registration"%>">Create account</a>

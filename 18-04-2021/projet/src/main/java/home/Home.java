@@ -25,13 +25,6 @@ public class Home extends HttpServlet {
 		ArticleDAO article = new ArticleDAO();
 
 		request.setAttribute("list", article.read());
-		getServletContext().getRequestDispatcher("/home.jsp").forward(request, response);
+		request.getRequestDispatcher("/index.jsp").forward(request, response);
 	}
-
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		doGet(request, response);
-	}
-
 }

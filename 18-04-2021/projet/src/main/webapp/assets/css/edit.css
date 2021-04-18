@@ -28,6 +28,7 @@ input{
 
 #dateContainer, #titleContainer, #descriptionContainer, #imageContainer {
 	margin-bottom: 10px;
+	text-align: center;
 }
 
 label {
@@ -62,7 +63,7 @@ label {
 #saveButton{
 	background-color: green;
 	border: 1px solid green;
-	margin-right: 50px;
+	margin: 10px 50px 0px 0px;
 	cursor: pointer;
 }
 
