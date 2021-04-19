@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+body,html {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+	background-color: #ddd;
+}
+* {
+    box-sizing: border-box;
+}
+
+.btn-margin {
+  margin-bottom: 10px;
+}
+
+body {
+  margin: 0px;
+}
+
+/* Header */
+header {
+  top: 0;
+  background-color: black;
+  position: fixed;
+  min-width: 100%;
+  height: 50px;
+  padding: 0px;
+  margin: 0px;
+}
+
+header nav {
+  min-height: 100%;
+}
+
+header nav ul {
+  line-height: 50px;
+  margin: 0px;
+  padding: 0;
+}
+
+header nav ul li {
+  display: inline-block;
+  list-style-type: none;
+  vertical-align: top;
+}
+
+header nav ul li a {
+  display: block;
+  text-decoration: none;
+  color: white;
+}
+
+header nav ul li a:hover {
+  color: white;
+}
+
+#articles, #createArticle, #propos {
+  margin-left: 30px;
+}
+
+#login, #disconnect, #register{
+  float: right;
+  margin-right: 30px;
+}
