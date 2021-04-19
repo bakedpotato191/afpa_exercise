@@ -5,51 +5,46 @@ form {
   border: 1px solid #ddd;
   padding: 10px;
   width: 800px;
+  margin-top: 50px;
 }
 
-.grandParentContainer {
-  display: table;
-  height: 100%;
-  margin: 50px auto;
-}
-
-.parentContainer {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-}
-
-input{
-	width: 600px;
-	height: 20px;
-	margin-bottom: 20px;
-	padding: 7px 15px;
-}
-
-#dateContainer, #titleContainer, #descriptionContainer, #imageContainer {
-	margin-bottom: 10px;
+.wrapper{
 	text-align: center;
 }
 
-label {
-	float: left;
+.contact__right{
+	margin-top:50px;
+	display: inline-block;
 }
 
-#contentInput {
-	width: 600px;
-	height: 410px;
-	margin-bottom: 10px;
-	resize: none;
+h2{
+	text-align: center;
 }
 
-#descriptionInput{
-	width: 600px;
-	height: 100px;
-	margin-bottom: 10px;
-	resize: none;
+form > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
 }
 
-#saveButton, #cancelButton{
+form input, form textarea{
+  width: 600px;
+  height: 40px;
+  border: 1px solid grey;
+  border-radius: 2px;
+  resize:vertical;
+}
+
+form textarea[name=content]{
+	height: 375px;
+}
+
+form textarea[name=description]{
+	height: 50px;
+}
+
+#saveButton{
 	width: 120px;
 	height: 30px;
 	padding: 5px 8px;
@@ -57,19 +52,13 @@ label {
 	font-size: 16px;
 	border-radius: 16px;
 	display: inline-block;
-
-}
-
-#saveButton{
 	background-color: green;
 	border: 1px solid green;
 	margin: 10px 50px 0px 0px;
 	cursor: pointer;
+
 }
 
-#cancelButton{
-	margin-left: 50px;
-	background-color: red;
-	border: 1px solid red;
-	cursor: pointer;
+form input[type=submit]{
+	margin: 0 auto;
 }

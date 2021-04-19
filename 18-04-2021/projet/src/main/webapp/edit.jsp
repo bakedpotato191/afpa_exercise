@@ -11,37 +11,34 @@
 <body>
 <%@ include file="/header/header.jsp" %>
 
-<div class="grandParentContainer">
-	<div class="parentContainer">
+<div class="wrapper">
+	<div class="contact__right">
 		<form method="post">
 				<h2 id="editForm"> Edit article</h2>
 
-			<div id="dateContainer">
+		<div>
 				<label for="imageInput">Date:</label>
 				<input type="datetime-local" id="dateInput" name="date" placeholder="2021-04-18 17:28:23" value="${date}" required autocomplete="off"></input>
-			</div>
-		
-			<div id="titleContainer">
+		</div>
+		<div>
 				<label for="imageInput">Title:</label>
 				<input type="text" id="titleInput" name="title" placeholder="Title" value="${title}" required autocomplete="off"></input>
-			</div>
-			
-			<div id="imageContainer">
+</div>
+<div>
 				<label for="imageInput">Upload image</label>
 				<input type="text" id="image" name="image" value="${image}" accept="image/png, image/jpeg">
-			</div>
-			
-			<div id="descriptionContainer">
+</div>
+<div>
 				<label for="imageInput">Description:</label>
 				<textarea id="descriptionInput" name="description" placeholder="Description" required autocomplete="off">${description}</textarea>
-			</div>
-			
-			<div id="contentContainer">
+</div>
+<div>
 				<label for="imageInput">Content:</label>
 				<textarea id="contentInput" name="content" placeholder="Content" required autocomplete="off">${content}</textarea>
-			</div>
-			
+</div>
+
 				<input type="submit" id="saveButton" name="action" value="Save">
+
 			<div id="error" role="alert">
 	  			${message}
 			</div>

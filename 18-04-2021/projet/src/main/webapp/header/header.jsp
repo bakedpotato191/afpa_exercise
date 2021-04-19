@@ -8,10 +8,7 @@
 				<a href="<%= request.getContextPath() + "/Home" %>">Home</a>
 			</li>
 			
-			<li id="createArticle">
-				<a href="<%= request.getContextPath() + "/Create" %>">Create article</a>
-			</li>
-			
+
 			<li id="propos">
 				<a href="<%= request.getContextPath() + "/Propos" %>">A propos</a>
 			</li>
@@ -27,6 +24,10 @@
 		    </c:if>
 		    
 		    <c:if test="${not empty utilisateur}">
+		    	<li id="createArticle">
+					<a href="<%= request.getContextPath() + "/Create" %>">Create article</a>
+				</li>
+		    
 		    	<li id="disconnect">
 		      		<a href="<%= request.getContextPath()+"/Logout"%>">Disconnect</a>
 		      	</li>

@@ -18,7 +18,7 @@
 
 <div class="grandParentContainer">
 	<div class="parentContainer">
-		<form method="post">
+		<form method="POST">
 				<h2 id="loginForm"> Please sign in</h2>
 
 			<div id="emailContainer">
