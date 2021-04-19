@@ -8,7 +8,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/Article")
 
@@ -24,15 +23,9 @@ public class Article extends HttpServlet {
 			throws ServletException, IOException {
 
 		ArticleDAO article = new ArticleDAO();
-		article.readById(request.getParameter("id"));
-
-		HttpSession session = request.getSession();
-
-		session.setAttribute("date", article.readById(request.getParameter("id")).getDate());
-		session.setAttribute("title", article.readById(request.getParameter("id")).getTitle());
-		session.setAttribute("description", article.readById(request.getParameter("id")).getDescription());
-		session.setAttribute("image", article.readById(request.getParameter("id")).getImage());
-		session.setAttribute("content", article.readById(request.getParameter("id")).getContent());
+		String id = request.getParameter("id");
+		
+		request.setAttribute("article", article.readById(id));
 
 		request.getRequestDispatcher("/article.jsp").forward(request, response);
 	}

@@ -9,11 +9,13 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/Edit")
 public class Edit extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
+	private static final String EDIT_JSP = "/edit.jsp";
 
 	public Edit() {
 		super();
@@ -23,7 +25,14 @@ public class Edit extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		request.getRequestDispatcher("/edit.jsp").forward(request, response);
+		String id = request.getParameter("id");
+		HttpSession session = request.getSession();
+
+		ArticleDAO article = new ArticleDAO();
+
+		session.setAttribute("article", article.readById(id));
+
+		request.getRequestDispatcher(EDIT_JSP).forward(request, response);
 	}
 
 	@Override
@@ -38,12 +47,12 @@ public class Edit extends HttpServlet {
 
 		if (article.update(edited)) {
 
-			request.setAttribute("message", "Artice edited successfully");
-			request.getRequestDispatcher("/edit.jsp").forward(request, response);
+			request.setAttribute("success", "Artice edited successfully");
+			request.getRequestDispatcher(EDIT_JSP).forward(request, response);
 		} else {
 
-			request.setAttribute("message", "Failed to edit the article");
-			request.getRequestDispatcher("/edit.jsp").forward(request, response);
+			request.setAttribute("error", "Failed to edit the article");
+			request.getRequestDispatcher(EDIT_JSP).forward(request, response);
 		}
 	}
 }

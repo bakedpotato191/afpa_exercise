@@ -12,9 +12,16 @@ form {
 	text-align: center;
 }
 
-.contact__right{
+.edit{
 	margin-top:50px;
 	display: inline-block;
+}
+
+h1{
+	color: red;
+	font-weight: bold;
+	font-size: 20px;
+	margin-top: 50px;
 }
 
 h2{
@@ -41,7 +48,7 @@ form textarea[name=content]{
 }
 
 form textarea[name=description]{
-	height: 50px;
+	height: 75px;
 }
 
 #saveButton{
@@ -54,11 +61,27 @@ form textarea[name=description]{
 	display: inline-block;
 	background-color: green;
 	border: 1px solid green;
-	margin: 10px 50px 0px 0px;
+	margin: 10px 50px 10px 0px;
 	cursor: pointer;
 
 }
 
 form input[type=submit]{
 	margin: 0 auto;
+}
+
+div[role=alert]{
+
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	display: block;
+}
+
+#error{
+	color: red;
+}
+
+#success{
+	color: green;
 }
