@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebServlet("/Edit")
+@WebServlet
 public class Edit extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;

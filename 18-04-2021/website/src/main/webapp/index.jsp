@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="ISO-8859-1"%>
-      <%@ page isELIgnored="false" %>
+
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -16,7 +16,7 @@
 	<section>
  	<c:forEach var="article" items="${list}">
 
- 		<c:url var="loadArticle" value="/Article">
+ 		<c:url var="loadArticle" value="/show">
             <c:param name="id" value="${article.id}"/>
         </c:url>
 

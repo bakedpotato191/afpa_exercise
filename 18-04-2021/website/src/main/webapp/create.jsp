@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="ISO-8859-1"%>
-    <%@ page isELIgnored="false" %>
+
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
 <meta charset="utf-8">
 <title>Create article</title>

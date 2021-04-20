@@ -1,4 +1,4 @@
-package home;
+package article;
 
 import java.io.IOException;
 
@@ -9,12 +9,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/Article")
+@WebServlet
 
-public class Article extends HttpServlet {
+public class Show extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public Article() {
+	public Show() {
 		super();
 	}
 
@@ -24,10 +24,10 @@ public class Article extends HttpServlet {
 
 		ArticleDAO article = new ArticleDAO();
 		String id = request.getParameter("id");
-		
+
 		request.setAttribute("article", article.readById(id));
 
-		request.getRequestDispatcher("/article.jsp").forward(request, response);
+		request.getRequestDispatcher("/show.jsp").forward(request, response);
 	}
 
 	@Override
@@ -36,7 +36,7 @@ public class Article extends HttpServlet {
 
 		if (request.getParameter("action").equals("Edit article")) {
 
-			response.sendRedirect(request.getContextPath() + "/Edit" + "?id=" + request.getParameter("id"));
+			response.sendRedirect(request.getContextPath() + "/edit" + "?id=" + request.getParameter("id"));
 		}
 
 		if (request.getParameter("action").equals("Delete article")) {
@@ -44,7 +44,7 @@ public class Article extends HttpServlet {
 			ArticleDAO article = new ArticleDAO();
 
 			if (article.delete(request.getParameter("id"))) {
-				request.getRequestDispatcher("/Home").forward(request, response);
+				request.getRequestDispatcher("").forward(request, response);
 			} else {
 				response.sendRedirect(request.getRequestURI());
 			}

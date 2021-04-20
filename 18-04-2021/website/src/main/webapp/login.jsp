@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="ISO-8859-1"%>
-       <%@ page isELIgnored="false" %>  
+
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
 <meta charset="utf-8">
 <title>Login Page</title>
 
-<link rel="stylesheet" href="<%= request.getContextPath() +"/assets/css/forms.css" %>">
+<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() +"/assets/css/forms.css" %>">
 
 </head>
 <body>
@@ -29,7 +29,7 @@
 		</form>
 		
 			<div id="options">
-			<label>or <a id="option-register" href="<%= request.getContextPath() +"/Registration" %>">Create a new account</a> | <a>Forgot Password?</a></label>
+			<label>or <a id="option-register" href="<%= request.getContextPath() +"/signup" %>">Create a new account</a> | <a>Forgot Password?</a></label>
 			</div>
 		
 		<c:if test="${not empty message}">

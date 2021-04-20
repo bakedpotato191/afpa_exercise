@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebServlet("/Login")
+@WebServlet
 public class Login extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -39,10 +39,10 @@ public class Login extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("utilisateur", user.login(email, password).getEmail());
 
-			request.getRequestDispatcher("/Home").forward(request, response);
+			response.sendRedirect(request.getContextPath());
 
 		} else {
-			request.setAttribute("message", "Invalid email or password.	");
+			request.setAttribute("message", "Invalid email or password.");
 			request.getRequestDispatcher("/login.jsp").forward(request, response);
 		}
 	}

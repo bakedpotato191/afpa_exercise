@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="ISO-8859-1"%>
-       <%@ page isELIgnored="false" %>
+
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -38,7 +38,7 @@
 		</form>
 		
 			<div id="options">
-			<label>or <a id="option-login" href="<%= request.getContextPath() +"/Login" %>">Login as Existing Customer</a></label>
+			<label>or <a id="option-login" href="<%= request.getContextPath() +"/login" %>">Login as Existing Customer</a></label>
 			</div>
 							
 			<c:if test="${not empty message}">

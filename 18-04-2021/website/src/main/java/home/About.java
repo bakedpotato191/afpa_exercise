@@ -8,18 +8,18 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/Propos")
-public class Propos extends HttpServlet {
+@WebServlet
+public class About extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public Propos() {
+	public About() {
 		super();
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.getRequestDispatcher("/propos.jsp").forward(request, response);
+		request.getRequestDispatcher("/about.jsp").forward(request, response);
 	}
 
 	@Override

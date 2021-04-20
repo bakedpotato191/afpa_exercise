@@ -5,31 +5,31 @@
 	<nav>
 		<ul>
 			<li id="articles">
-				<a href="<%= request.getContextPath() + "/Home" %>">Home</a>
+				<a href="<%= request.getContextPath() + "" %>">Home</a>
 			</li>
 			
 
 			<li id="propos">
-				<a href="<%= request.getContextPath() + "/Propos" %>">A propos</a>
+				<a href="<%= request.getContextPath() + "/about" %>">A propos</a>
 			</li>
 			
 			<c:if test="${empty utilisateur}">
 				<li id="register">
-		      		<a href="<%= request.getContextPath()+"/Registration"%>">Create account</a>
+		      		<a href="<%= request.getContextPath()+"/signup"%>">Create account</a>
 		      	</li>
 			
 				<li id="login">
-		      		<a href="<%= request.getContextPath()+"/Login"%>">Sign-In</a>
+		      		<a href="<%= request.getContextPath()+"/login"%>">Sign-In</a>
 		      	</li>
 		    </c:if>
 		    
 		    <c:if test="${not empty utilisateur}">
 		    	<li id="createArticle">
-					<a href="<%= request.getContextPath() + "/Create" %>">Create article</a>
+					<a href="<%= request.getContextPath() + "/create" %>">Create article</a>
 				</li>
 		    
 		    	<li id="disconnect">
-		      		<a href="<%= request.getContextPath()+"/Logout"%>">Disconnect</a>
+		      		<a href="<%= request.getContextPath()+"/logout"%>">Disconnect</a>
 		      	</li>
 		    </c:if>
 

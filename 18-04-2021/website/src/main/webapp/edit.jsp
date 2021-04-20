@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="ISO-8859-1"%>
-	<%@ page isELIgnored="false" %>
+
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
 <meta charset="utf-8">
 <title>${id}</title>
-<link rel="stylesheet" href="<%= request.getContextPath() +"/assets/css/edit.css" %>">
+<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() +"/assets/css/edit.css" %>">
 </head>
 <body>
 <%@ include file="/header/header.jsp" %>

@@ -16,7 +16,7 @@ public class DataSource {
 		config.addDataSourceProperty("user", "user_test");
 		config.addDataSourceProperty("password", "password_test");
 		config.addDataSourceProperty("databaseName", "java");
-		config.addDataSourceProperty("port", 3308);
+		config.addDataSourceProperty("port", 3306);
 		config.addDataSourceProperty("serverName", "localhost");
 		config.addDataSourceProperty("cachePrepStmts", true);
 		config.addDataSourceProperty("prepStmtCacheSize", 250);
