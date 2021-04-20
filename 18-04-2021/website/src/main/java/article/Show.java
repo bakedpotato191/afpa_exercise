@@ -21,13 +21,19 @@ public class Show extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		if (request.getParameter("id") == null || request.getParameter("id").isBlank()) {
+			
+			response.sendError(HttpServletResponse.SC_NOT_FOUND);
+		}
+		else {
+			ArticleDAO article = new ArticleDAO();
+			String id = request.getParameter("id");
 
-		ArticleDAO article = new ArticleDAO();
-		String id = request.getParameter("id");
+			request.setAttribute("article", article.readById(id));
 
-		request.setAttribute("article", article.readById(id));
-
-		request.getRequestDispatcher("/show.jsp").forward(request, response);
+			request.getRequestDispatcher("/show.jsp").forward(request, response);
+		}
 	}
 
 	@Override

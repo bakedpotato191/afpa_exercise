@@ -17,7 +17,7 @@
 <div class="flex-container">
 	<div class="container">
 		<form method="post">
-			<h2 id="registrationForm">Registration</h2>
+			<h2>Registration</h2>
 			
 			<div id="nom">
 				<input type="text" id="nomInput" name="nom" placeholder="Nom" required autocomplete="off"></input>
@@ -34,7 +34,7 @@
 			<div id="password">
 				<input type="password" id="passwordInput" name="password" placeholder="Password" required autocomplete="off"></input>
 			</div>
-				<button type="submit" id="registrationButton">Submit</button> 
+				<button type="submit">Submit</button> 
 		</form>
 		
 			<div id="options">

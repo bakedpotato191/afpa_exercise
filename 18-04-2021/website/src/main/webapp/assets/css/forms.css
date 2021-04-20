@@ -29,13 +29,13 @@ input {
   	padding: 6px 12px 6px 12px;
 }
 
-#loginForm, #registrationForm {
+h2 {
   	color: #333;
   	font-size: 30px;
   	text-align: center;
 }
 
-#loginButton, #registrationButton {
+button[type=submit] {
   	display: block;
   	width: 200px;
   	font-size: 18px;

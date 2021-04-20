@@ -24,7 +24,13 @@ public class Edit extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
+		if (request.getParameter("id") == null || request.getParameter("id").isBlank()) {
+			
+			response.sendError(HttpServletResponse.SC_NOT_FOUND);
+		}
+		else {
+			
 		String id = request.getParameter("id");
 		HttpSession session = request.getSession();
 
@@ -33,6 +39,7 @@ public class Edit extends HttpServlet {
 		session.setAttribute("article", article.readById(id));
 
 		request.getRequestDispatcher(EDIT_JSP).forward(request, response);
+		}
 	}
 
 	@Override
