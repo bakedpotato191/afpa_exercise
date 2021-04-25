@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet(name = "Login", urlPatterns = "/login")
 public class Login extends HttpServlet {
@@ -33,7 +34,8 @@ public class Login extends HttpServlet {
 		UserDAO user = new UserDAO();
 
 		if (user.login(email, password) != null) {
-			request.getSession().setAttribute("utilisateur",
+			HttpSession session = request.getSession(true);
+			session.setAttribute("utilisateur",
 					user.login(email, password).getEmail());
 			response.sendRedirect(request.getContextPath());
 

@@ -6,9 +6,9 @@
 <head>
 <meta charset="utf-8">
 <title>Create article</title>
-<link rel="stylesheet"
+<link rel="stylesheet" type="text/css"
 	href="<%= request.getContextPath() +"/assets/css/header.css" %>">
-<link rel="stylesheet"
+<link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath() + "/assets/css/edit.css"%>">
 </head>
 <body>

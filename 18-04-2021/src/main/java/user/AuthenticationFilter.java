@@ -7,23 +7,16 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-@WebFilter(filterName = "AuthenticationFilter", urlPatterns = "")
+@WebFilter(filterName = "AuthenticationFilter", urlPatterns = "/*")
 public class AuthenticationFilter implements Filter {
 
 	private HttpServletRequest httpRequest;
 
-	private static final String[] loginRequiredURLs = { "", "/show", "/create", "/edit" };
+	private static final String[] loginRequiredURLs = { "/create", "/edit", "/delete", "/logout" };
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		httpRequest = (HttpServletRequest) request;
-
-		String path = httpRequest.getRequestURI().substring(httpRequest.getContextPath().length());
-
-		if (path.startsWith("/")) {
-			chain.doFilter(request, response);
-			return;
-		}
 
 		HttpSession session = httpRequest.getSession(false);
 
@@ -36,7 +29,7 @@ public class AuthenticationFilter implements Filter {
 		if (isLoggedIn && (isLoginRequest || isLoginPage)) {
 			// the user is already logged in and he's trying to login again
 			// then forward to the homepage
-			httpRequest.getRequestDispatcher("/").forward(request, response);
+			httpRequest.getRequestDispatcher("/home").forward(request, response);
 
 		} else if (!isLoggedIn && isLoginRequired()) {
 			// the user is not logged in, and the requested page requires
