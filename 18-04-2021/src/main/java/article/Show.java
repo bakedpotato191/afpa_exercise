@@ -28,7 +28,6 @@ public class Show extends HttpServlet {
 			String id = request.getParameter("id");
 
 			request.setAttribute("article", article.readById(id));
-
 			request.getRequestDispatcher("/show.jsp").forward(request, response);
 		}
 	}

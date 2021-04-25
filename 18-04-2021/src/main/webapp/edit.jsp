@@ -5,7 +5,7 @@
 <html lang="en-US">
 <head>
 <meta charset="utf-8">
-<title>${id}</title>
+<title>${article.id}</title>
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath() + "/assets/css/edit.css"%>">
 </head>
@@ -14,7 +14,7 @@
 
 	<div class="wrapper">
 		<div class="edit">
-			<form method="post" action="edit" enctype="multipart/form-data">
+			<form method="post" action="edit?id=${article.id}" enctype="multipart/form-data">
 				<h2 id="editForm">Edit article</h2>
 				<div>
 					<label for="imageInput">Date:</label> <input type="datetime-local"

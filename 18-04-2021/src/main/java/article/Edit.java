@@ -47,16 +47,15 @@ public class Edit extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		HttpSession session = request.getSession(false);
 
-		String id = (String) session.getAttribute("id");
+		String id = request.getParameter("id");
 		String date = request.getParameter("date");
 		String title = request.getParameter("title");
 		String description = request.getParameter("description");
 		String content = request.getParameter("content");
-		String default_location = "assets/images/";
+		String path = "assets/images/";
 
-		String uploadPath = getServletContext().getRealPath("") + File.separator + default_location;
+		String uploadPath = getServletContext().getRealPath("") + File.separator + path;
 		File uploadDir = new File(uploadPath);
 
 		if (!uploadDir.exists())
@@ -69,7 +68,7 @@ public class Edit extends HttpServlet {
 			part.write(uploadPath + File.separator + fileName);
 		}
 
-		Article edited = new Article(id, date, title, default_location + fileName, description,
+		Article edited = new Article(id, date, title, path + fileName, description,
 				content);
 		ArticleDAO article = new ArticleDAO();
 
