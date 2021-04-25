@@ -1,23 +1,15 @@
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body,html {
   margin: 0;
   padding: 0;
 }
 
-body {
-  background-color: #ddd;
-}
+body { background-color: #ddd; }
 
-.btn-margin {
-  margin-bottom: 10px;
-}
+.btn-margin { margin-bottom: 10px; }
 
-body {
-  margin: 0;
-}
+body { margin: 0; }
 
 header {
   top: 0;
@@ -29,9 +21,7 @@ header {
   margin: 0;
 }
 
-header nav {
-  min-height: 100%;
-}
+header nav { min-height: 100%; }
 
 header nav ul {
   line-height: 50px;
@@ -51,9 +41,7 @@ header nav ul li a {
   color: white;
 }
 
-header nav ul li a:hover {
-  color: white;
-}
+header nav ul li a:hover { color: white; }
 
 #articles, 
 #createArticle, 

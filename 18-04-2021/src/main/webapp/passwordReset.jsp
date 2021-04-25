@@ -5,6 +5,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update your password</title>
+<link rel="stylesheet"
+	href="<%= request.getContextPath() +"/assets/css/header.css" %>">
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath() + "/assets/css/forms.css"%>">
 </head>

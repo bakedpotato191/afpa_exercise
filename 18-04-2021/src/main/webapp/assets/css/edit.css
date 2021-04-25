@@ -1,14 +1,8 @@
-@import "header.css";
-
 form {
-  border: 1px solid #ddd;
   padding: 10px;
-  width: 800px;
   margin-top: 50px;
-}
-
-.wrapper {
-  text-align: center;
+  width: 800px;
+  border: 1px solid #ddd;
 }
 
 .edit {
@@ -21,10 +15,6 @@ h1 {
   font-weight: bold;
   font-size: 20px;
   margin-top: 50px;
-}
-
-h2 {
-  text-align: center;
 }
 
 form > div {
@@ -43,30 +33,18 @@ form textarea {
   resize:vertical;
 }
 
-textarea[name="content"] {
-  height: 375px;
-}
-
-textarea[name=description] {
-  height: 75px;
-}
-
 #saveButton {
+  display: inline-block;
+  padding: 5px 8px;
+  margin: 10px 50px 10px 0;
   width: 120px;
   height: 30px;
-  padding: 5px 8px;
-  color: white;
-  font-size: 16px;
-  border-radius: 16px;
-  display: inline-block;
   background-color: green;
   border: 1px solid green;
-  margin: 10px 50px 10px 0;
+  border-radius: 16px;
+  color: white;
+  font-size: 16px;
   cursor: pointer;
-}
-
-input[type="submit"] {
-  margin: 0 auto;
 }
 
 div[role="alert"]{
@@ -76,10 +54,16 @@ div[role="alert"]{
   display: block;
 }
 
-#error {
-  color: red;
-}
+textarea[name="content"] { height: 375px; }
 
-#success {
-  color: green;
-}
+textarea[name=description] { height: 75px; }
+
+.wrapper { text-align: center; }
+
+h2 { text-align: center; }
+
+input[type="submit"] { margin: 0 auto; }
+
+#error { color: red; }
+
+#success { color: green; }

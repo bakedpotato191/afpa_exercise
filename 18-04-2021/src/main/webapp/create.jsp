@@ -7,6 +7,8 @@
 <meta charset="utf-8">
 <title>Create article</title>
 <link rel="stylesheet"
+	href="<%= request.getContextPath() +"/assets/css/header.css" %>">
+<link rel="stylesheet"
 	href="<%=request.getContextPath() + "/assets/css/edit.css"%>">
 </head>
 <body>

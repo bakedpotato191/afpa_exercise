@@ -7,6 +7,8 @@
 <meta charset="utf-8">
 <title>A propos de nous</title>
 <link rel="stylesheet"
+	href="<%= request.getContextPath() +"/assets/css/header.css" %>">
+<link rel="stylesheet"
 	href="<%= request.getContextPath() +"/assets/css/propos.css" %>">
 
 </head>

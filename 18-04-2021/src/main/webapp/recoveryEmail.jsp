@@ -6,7 +6,8 @@
 <head>
 <meta charset="utf-8">
 <title>Password Recovery</title>
-
+<link rel="stylesheet"
+	href="<%= request.getContextPath() +"/assets/css/header.css" %>">
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() +"/assets/css/forms.css" %>">
 
 </head>

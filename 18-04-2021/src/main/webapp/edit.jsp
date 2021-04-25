@@ -7,6 +7,8 @@
 <meta charset="utf-8">
 <title>${article.id}</title>
 <link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath() + "/assets/css/header.css"%>">
+<link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath() + "/assets/css/edit.css"%>">
 </head>
 <body>
