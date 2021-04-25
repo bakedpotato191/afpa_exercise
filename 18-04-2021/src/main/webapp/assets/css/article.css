@@ -1,0 +1,67 @@
+@import "header.css";
+
+article {
+  margin: 50px auto;
+  width: 800px;
+}
+
+img {
+  width: 800px;
+  padding-top: 20px;
+}
+
+#title {
+  padding-top: 50px;
+}
+
+#title h1 {
+  font-size: 2rem;
+}
+
+#content p {
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+#date, 
+#description {
+  color: #9a9a9a;
+}
+
+#panel {
+  display: block;
+  margin: 0 auto;
+  width: 800px;
+}
+
+form {
+  display: inline-block;
+}
+
+#editbtn, 
+#deletebtn {
+  cursor: pointer;
+  display: inline-block;
+  width: 120px;
+  font-size: 16px;
+  padding: 7px 10px;
+  color: white;
+  border-radius: 16px;
+  text-decoration: none;
+  text-align: center;
+}
+
+#editbtn {
+  background-color: black;
+  border: 1px solid black;
+}
+
+#deletebtn {
+  margin-left: 20px;
+  background-color: red;
+  border: 1px solid red;
+}
+
+.container {
+  margin-bottom: 100px;
+}
