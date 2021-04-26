@@ -33,8 +33,6 @@
 			<div id="panel">
 				<a id="editbtn"
 					href="<%= request.getContextPath() %>/edit?id=${article.id}">Edit
-					Article</a> <a id="deletebtn"
-					href="<%= request.getContextPath() %>/delete?id=${article.id}">Delete
 					Article</a>
 			</div>
 		</c:if>

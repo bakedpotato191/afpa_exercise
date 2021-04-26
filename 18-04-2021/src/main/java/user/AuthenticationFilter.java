@@ -3,6 +3,7 @@ package user;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
@@ -17,7 +18,7 @@ public class AuthenticationFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		httpRequest = (HttpServletRequest) request;
-
+		HttpServletResponse httpResponse = (HttpServletResponse) response;
 		HttpSession session = httpRequest.getSession(false);
 
 		boolean isLoggedIn = (session != null && session.getAttribute("utilisateur") != null);
@@ -34,9 +35,7 @@ public class AuthenticationFilter implements Filter {
 		} else if (!isLoggedIn && isLoginRequired()) {
 			// the user is not logged in, and the requested page requires
 			// authentication, then forward to the login page
-			String loginPage = "/login.jsp";
-			RequestDispatcher dispatcher = httpRequest.getRequestDispatcher(loginPage);
-			dispatcher.forward(request, response);
+			httpResponse.sendRedirect(loginURI);
 		} else {
 			// for other requested pages that do not require authentication
 			// or the user is already logged in, continue to the destination

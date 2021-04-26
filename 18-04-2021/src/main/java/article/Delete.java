@@ -17,16 +17,15 @@ public class Delete extends HttpServlet {
 	}
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		if (request.getParameter("id") == null || request.getParameter("id").isBlank()) {
 			response.sendError(HttpServletResponse.SC_NOT_FOUND);
 		} else {
 			String id = request.getParameter("id");
 			ArticleDAO article = new ArticleDAO();
 			article.delete(id);
-			response.sendRedirect("/home");
+			response.sendRedirect(request.getContextPath());
 		}
 	}
 }

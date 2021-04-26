@@ -1,4 +1,5 @@
 form {
+  display: inline;
   padding: 10px;
   margin-top: 50px;
   width: 800px;
@@ -26,6 +27,7 @@ form > div {
 
 form input, 
 form textarea {
+  margin-left: 20px;
   width: 600px;
   height: 40px;
   border: 1px solid grey;
@@ -41,6 +43,20 @@ form textarea {
   height: 30px;
   background-color: green;
   border: 1px solid green;
+  border-radius: 16px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#deleteButton {
+  display: inline-block;
+  padding: 5px 8px;
+  margin: 10px 50px 10px 0;
+  width: 120px;
+  height: 30px;
+  background-color: red;
+  border: 1px solid red;
   border-radius: 16px;
   color: white;
   font-size: 16px;

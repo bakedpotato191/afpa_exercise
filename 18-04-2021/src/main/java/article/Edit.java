@@ -12,7 +12,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
 
 @WebServlet(name = "Edit", urlPatterns = "/edit")
@@ -47,9 +46,7 @@ public class Edit extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-
 		String id = request.getParameter("id");
-		String date = request.getParameter("date");
 		String title = request.getParameter("title");
 		String description = request.getParameter("description");
 		String content = request.getParameter("content");
@@ -68,16 +65,16 @@ public class Edit extends HttpServlet {
 			part.write(uploadPath + File.separator + fileName);
 		}
 
-		Article edited = new Article(id, date, title, path + fileName, description,
-				content);
-		ArticleDAO article = new ArticleDAO();
+		Article article = new Article(id, null, title, path + fileName, description, content);
+		ArticleDAO dao = new ArticleDAO();
 
-		if (article.update(edited)) {
+		if (dao.update(article)) {
 			request.setAttribute("success", "Artice edited successfully");
 
 		} else {
 			request.setAttribute("error", "Failed to edit the article");
 		}
+		request.setAttribute("article", article);
 		request.getRequestDispatcher("/edit.jsp").forward(request, response);
 	}
 

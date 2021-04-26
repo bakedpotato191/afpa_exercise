@@ -28,24 +28,18 @@
 
 		<div class="wrapper">
 			<div class="edit">
-				<form method="post">
+				<form method="post" enctype="multipart/form-data">
 					<h2 id="editForm">Create article</h2>
 
 					<div>
-						<label for="imageInput">Date:</label> <input type="datetime-local"
-							id="dateInput" name="date" placeholder="Date" required
-							autocomplete="off"></input>
-					</div>
-
-					<div>
-						<label for="imageInput">Title:</label> <input type="text"
+						<label for="titleInput">Title:</label> <input type="text"
 							id="titleInput" name="title" placeholder="Title" required
 							autocomplete="off"></input>
 					</div>
 
 					<div>
-						<label for="imageInput">Upload image</label> <input type="text"
-							id="image" name="image" placeholder="/assets/images/image1.jpg"
+						<label for="image">Upload image</label> <input type="file"
+							id="image" name="image"
 							accept="image/png, image/jpeg">
 					</div>
 

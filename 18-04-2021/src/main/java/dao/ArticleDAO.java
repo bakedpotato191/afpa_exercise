@@ -18,13 +18,12 @@ public class ArticleDAO implements IDAO<Article> {
 
 		try (Connection conn = DataSource.getConnection();
 				PreparedStatement ps = conn.prepareStatement(
-						"INSERT INTO articles (date, title, image, description, content) VALUES (?,?,?,?,?)")) {
+						"INSERT INTO articles (title, image, description, content) VALUES (?,?,?,?)")) {
 
-			ps.setString(1, object.getDate());
-			ps.setString(2, object.getTitle());
-			ps.setString(3, object.getImage());
-			ps.setString(4, object.getDescription());
-			ps.setString(5, object.getContent());
+			ps.setString(1, object.getTitle());
+			ps.setString(2, object.getImage());
+			ps.setString(3, object.getDescription());
+			ps.setString(4, object.getContent());
 			ps.executeUpdate();
 
 			created = true;
@@ -42,14 +41,13 @@ public class ArticleDAO implements IDAO<Article> {
 
 		try (Connection conn = DataSource.getConnection();
 				PreparedStatement ps = conn.prepareStatement(
-						"UPDATE articles SET date=?, title=?, image=?, description=?, content=? WHERE id=?")) {
+						"UPDATE articles SET title=?, image=?, description=?, content=? WHERE id=?")) {
 
-			ps.setString(1, object.getDate());
-			ps.setString(2, object.getTitle());
-			ps.setString(3, object.getImage());
-			ps.setString(4, object.getDescription());
-			ps.setString(5, object.getContent());
-			ps.setString(6, object.getId());
+			ps.setString(1, object.getTitle());
+			ps.setString(2, object.getImage());
+			ps.setString(3, object.getDescription());
+			ps.setString(4, object.getContent());
+			ps.setString(5, object.getId());
 
 			ps.executeUpdate();
 			updated = true;
